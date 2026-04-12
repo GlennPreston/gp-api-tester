@@ -1,0 +1,64 @@
+/* -----------------------------------------------------------------------------
+   Root, light theme
+----------------------------------------------------------------------------- */
+
+:root {
+	/* Palette */
+	--brand: #262aff;
+	--brand-accent: #4043ff;
+	--primary: #e6e6e6;
+	--primary-accent: #d9d9d9;
+	--secondary: #ffffff;
+	--secondary-accent: #f2f2f2;
+	--tertiary: #191919;
+	--tertiary-accent: #262626;
+
+	/* Navbar */
+	--navbar-height: 60px;
+	--navbar-link-border-radius: 10px;
+    --navbar-bg: var(--primary);
+	--navbar-bg-hover: var(--primary-accent);
+	--navbar-bg-active: var(--secondary);
+    --navbar-text: var(--tertiary);
+	--navbar-text-title: var(--brand);
+	--navbar-text-title-hover: var(--brand-accent);
+	--navbar-text-active: var(--brand);
+
+	/* Sidebar */
+	--sidebar-width: 280px;
+    --sidebar-collapsed-width: 60px;
+    --sidebar-header-height: 50px;
+    --sidebar-bg: var(--secondary);
+	--sidebar-bg-hover: var(--secondary-accent);
+	--sidebar-bg-active: var(--secondary-accent);
+    --sidebar-text: var(--tertiary);
+	--sidebar-text-active: var(--brand);
+
+	/* Content */
+	--content-max-width: 800px;
+	--content-bg: var(--secondary);
+    --content-text: var(--tertiary);
+
+	/* Transition */
+    --transition-duration: 0.3s;
+    --transition-easing: cubic-bezier(.4,0,.2,1);
+	
+	/* Border */
+	--border-color: #d7dce1;
+}
+
+/* ---------------------------------------------------------------------------
+   Dark theme
+--------------------------------------------------------------------------- */
+
+[data-theme="dark"] {
+	/* Palette */
+	--brand: #8082ff;
+	--brand-accent: #6669ff;
+	--primary: #2b2b2b;
+	--primary-accent: #262626;
+	--secondary: #333333;
+	--secondary-accent: #404040;
+	--tertiary: #e6e6e6;
+	--tertiary-accent: #d9d9d9;
+}
