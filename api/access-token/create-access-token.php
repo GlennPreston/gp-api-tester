@@ -6,6 +6,17 @@ $pageTitle = page_title("Create Access Token");
 ?>
 
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
-	<h2>Create Access Token</h2>
-	<p><i>Coming soon...<i></p>
+	<div class="content-header">
+		<h2>Create Access Token</h2>
+
+		<mode-toggle-component></mode-toggle-component>
+	</div>
+
+	<section id="mode-demo">
+		<p><i>Demo mode coming soon...<i></p>
+	</section>
+
+	<section id="mode-debug" class="hidden">
+		<p><i>Debug mode coming soon...<i></p>
+	</section>
 </div>
