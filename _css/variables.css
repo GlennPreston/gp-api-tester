@@ -45,6 +45,16 @@
 	
 	/* Border */
 	--border-color: #d7dce1;
+
+	/* HTTP Methods */
+	--http-get-bg: #dee8ff;
+	--http-get-text: #1d4ed8;
+	--http-post-bg: #d8f0df;
+	--http-post-text: #15803d;
+	--http-patch-bg: #ffedde;
+	--http-patch-text: #c26a0c;
+	--http-delete-bg: #ffe6e6;
+	--http-delete-text: #b91c1c;
 }
 
 /* ---------------------------------------------------------------------------
