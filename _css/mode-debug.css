@@ -1,0 +1,90 @@
+/* ---------------------------------------------------------------------------
+   Debug layout
+--------------------------------------------------------------------------- */
+
+.debug-block {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.debug-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--secondary-accent);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 12px 12px 0 0;
+    gap: 8px;
+}
+
+.debug-block-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+}
+
+.debug-endpoint-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+}
+
+/* ---------------------------------------------------------------------------
+   Method dropdown
+--------------------------------------------------------------------------- */
+
+method-dropdown-component {
+    position: relative;
+}
+
+.method-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.method-dropdown-btn:hover { opacity: 0.8; }
+
+.method-dropdown-btn svg {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    opacity: 0.65;
+}
+
+.method-dropdown-list {
+    position: absolute;
+    top: calc(100% + 2px);
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background: var(--secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    min-width: 76px;
+}
+
+.method-dropdown-list-option {
+    padding: 4px 10px;
+    margin: 1px 0px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.method-option:hover { opacity: 0.8; }
