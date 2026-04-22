@@ -25,6 +25,8 @@ $pageTitle = page_title("Create Access Token");
 
 			<div class="debug-endpoint-row">
 				<method-dropdown-component method="POST"></method-dropdown-component>
+
+				<input id="debug-endpoint-input" class="debug-endpoint-input" type="text" value="https://apis.sandbox.globalpay.com/ucp/accesstokens">
 			</div>
 		</div>
 	</section>
