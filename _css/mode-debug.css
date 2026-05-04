@@ -12,11 +12,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 14px;
+    padding: 8px 14px;
     background: var(--secondary-accent);
     border-bottom: 1px solid var(--border-color);
     border-radius: 12px 12px 0 0;
-    gap: 8px;
 }
 
 .debug-block-title {
@@ -30,20 +29,18 @@
 .debug-endpoint-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
 }
 
 .debug-endpoint-input {
     width: 100%;
-    padding: 4px 10px;
-    font-family: inherit;
-    font-size: 14px;
+    padding: 8px 10px;
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 12px;
     font-weight: 500;
     color: var(--content-text);
-    background: var(--secondary-accent);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    background: var(--secondary);
+    border: none;
+    border-radius: 0 0 11px 0;
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.2s;
@@ -60,11 +57,11 @@ method-dropdown-component {
 .method-dropdown-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     font-size: 12px;
     font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
+    padding: 8px 16px;
+    border-radius: 0 0 0 11px;
     border: none;
     cursor: pointer;
     transition: opacity 0.15s;
