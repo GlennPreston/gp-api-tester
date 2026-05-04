@@ -71,4 +71,7 @@
 	--secondary-accent: #404040;
 	--tertiary: #e6e6e6;
 	--tertiary-accent: #d9d9d9;
+
+	/* Border */
+	--border-color: #838689;
 }
