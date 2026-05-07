@@ -298,6 +298,7 @@ sidebar-component {
 .content {
     grid-area: content;
     display: flex;
+    align-items: flex-start;
     justify-content: center;
     background: var(--content-bg);
     color: var(--content-text);
