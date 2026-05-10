@@ -115,6 +115,51 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Submit button
+--------------------------------------------------------------------------- */
+
+.form-actions {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 28px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--brand);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    min-width: 140px;
+}
+
+.btn-primary:hover  { background: var(--brand-accent); }
+
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------------------------------------------------------------------------
    Utility
 --------------------------------------------------------------------------- */
  
