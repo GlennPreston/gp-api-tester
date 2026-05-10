@@ -6,6 +6,180 @@ $pageTitle = page_title("Hosted Payment Page");
 ?>
 
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
-	<h2>Hosted Payment Page</h2>
-	<p><i>Coming soon...<i></p>
+	<div class="content-header">
+		<h2>Hosted Payment Page</h2>
+
+		<mode-toggle-component></mode-toggle-component>
+	</div>
+
+	<section id="mode-demo">
+		<div class="form-fields">
+			<!-- CREDENTIAL FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend>Credentials</legend>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-app-id">App ID</label>
+					<input id="demo-app-id" class="field-input">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-app-key">App Key</label>
+					<input id="demo-app-key" class="field-input">
+				</div>
+			</fieldset>
+
+			<!-- TRANSACTION DETAIL FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend>Transaction Details</legend>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-orderid">Order ID</label>
+					<input id="demo-orderid" class="field-input" value="12345678">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-amount">Amount</label>
+					<input id="demo-amount" class="field-input" value="1000">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-currency">Currency</label>
+					<input id="demo-currency" class="field-input" value="EUR">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-country">Country</label>
+					<input id="demo-country" class="field-input" value="IE">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-autosettle">Auto Settle</label>
+					<input id="demo-autosettle" class="field-input" value="Yes">
+				</div>
+			</fieldset>
+
+			<!-- 3DS FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend>3DS<toggle-switch-component input-id="demo-3ds"></toggle-switch-component></legend>
+
+				<div id="demo-3ds-fields" class="form-fieldset-fields">
+					<div class="field-row">
+						<label class="field-label" for="demo-email">Email</label>
+						<input id="demo-email" class="field-input" value="test@example.com">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-phonenumber-countrycode">Phone Number</label>
+						<input id="demo-phonenumber-countrycode" class="field-input" value="44">
+						<input id="demo-phonenumber-subscribernumber" class="field-input" value="789456123">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingstreet1">Billing Street 1</label>
+						<input id="demo-billingstreet1" class="field-input" value="Flat 123">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingstreet2">Billing Street 2</label>
+						<input id="demo-billingstreet2" class="field-input" value="House 456">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingstreet3">Billing Street 3</label>
+						<input id="demo-billingstreet3" class="field-input" value="Unit 4">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingcity">Billing City</label>
+						<input id="demo-billingcity" class="field-input" value="Halifax">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingstate">Billing State</label>
+						<input id="demo-billingstate" class="field-input" value="">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingpostalcode">Billing Postal Code</label>
+						<input id="demo-billingpostalcode" class="field-input" value="W5 9HR">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-billingcountry">Billing Country</label>
+						<input id="demo-billingcountry" class="field-input" value="GB">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingstreet1">Shipping Street 1</label>
+						<input id="demo-shippingstreet1" class="field-input" value="Apartment 852">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingstreet2">Shipping Street 2</label>
+						<input id="demo-shippingstreet2" class="field-input" value="Complex 741">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingstreet3">Shipping Street 3</label>
+						<input id="demo-shippingstreet3" class="field-input" value="House 963">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingcity">Shipping City</label>
+						<input id="demo-shippingcity" class="field-input" value="Chicago">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingstate">Shipping State</label>
+						<input id="demo-shippingstate" class="field-input" value="IL">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingpostalcode">Shipping Postal Code</label>
+						<input id="demo-shippingpostalcode" class="field-input" value="50001">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-shippingcountry">Shipping Country</label>
+						<input id="demo-shippingcountry" class="field-input" value="US">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-addressmatchindicator">Address Match Indicator</label>
+						<input id="demo-addressmatchindicator" class="field-input" value="YES">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-challengerequestindicator">Challenge Request Indicator</label>
+						<input id="demo-challengerequestindicator" class="field-input" value="NO_PREFERENCE">
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- CARD STORAGE FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend>Card Storage<toggle-switch-component input-id="demo-cardstorage"></toggle-switch-component></legend>
+
+				<div id="demo-cardstorage-fields" class="form-fieldset-fields">
+				</div>
+			</fieldset>
+
+			<!-- DIGITAL WALLETS FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend>Digital Wallets<toggle-switch-component input-id="demo-digitalwallets"></toggle-switch-component></legend>
+
+				<div id="demo-digitalwallets-fields" class="form-fieldset-fields">
+				</div>
+			</fieldset>
+
+			<div class="form-actions">
+                <submit-button-component></submit-button-component>
+            </div>
+		</div>
+	</section>
+
+	<section id="mode-debug" class="hidden">
+		<p><i>Debug mode coming soon...</i></p>
+	</section>
 </div>

@@ -6,4 +6,6 @@
 
 @import "components.css";
 
+@import "mode-demo.css";
+
 @import "mode-debug.css";
