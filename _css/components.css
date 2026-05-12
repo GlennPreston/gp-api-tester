@@ -78,6 +78,10 @@
    Toggle button
 --------------------------------------------------------------------------- */
 
+toggle-switch-component {
+    display: flex;
+}
+
 .toggle-switch {
     display: inline-flex;
     align-items: center;
