@@ -1,4 +1,9 @@
 class SubmitButton extends HTMLElement {
+	// Observed attributes
+    static get observedAttributes() {
+        return ['input-id'];
+    }
+
 	constructor() {
 		super();
 	}
@@ -8,33 +13,23 @@ class SubmitButton extends HTMLElement {
     // -------------------------------------------------------------------------
 	
 	connectedCallback() {
+		this._inputID = this.getAttribute('input-id');
+
 		this.innerHTML = `
-			<button id="demo-submit" class="btn-primary">
+			<button id="${this._inputID}" class="btn-primary">
                 <span class="btn-text">Send Request</span>
                 <span class="btn-spinner hidden"></span>
             </button>
 		`;
-
-		this.initEvents();
-	}
-
-    // -------------------------------------------------------------------------
-    // Events
-    // -------------------------------------------------------------------------
-
-	initEvents() {
-		const submitBtn  = this.querySelector('#demo-submit');
-
-		submitBtn.addEventListener('click', async () => {
-			this.setLoading(submitBtn, true);
-		});
 	}
 
 	// -------------------------------------------------------------------------
     // Helpers
     // -------------------------------------------------------------------------
 
-	setLoading(btn, on) {
+	setLoading(on) {
+		const btn  = document.querySelector("#"+this._inputID);
+
         btn.querySelector('.btn-text').classList.toggle('hidden', on);
         btn.querySelector('.btn-spinner').classList.toggle('hidden', !on);
         btn.disabled = on;

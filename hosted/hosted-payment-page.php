@@ -183,3 +183,5 @@ $pageTitle = page_title("Hosted Payment Page");
 		<p><i>Debug mode coming soon...</i></p>
 	</section>
 </div>
+
+<script src="./_scripts/js/hosted-payment-page.js" type="text/javascript" defer></script>
