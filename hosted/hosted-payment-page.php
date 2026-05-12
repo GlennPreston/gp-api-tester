@@ -15,19 +15,7 @@ $pageTitle = page_title("Hosted Payment Page");
 	<section id="mode-demo">
 		<div class="form-fields">
 			<!-- CREDENTIAL FIELDS -->
-			<fieldset class="form-fieldset">
-				<legend>Credentials</legend>
-
-				<div class="field-row">
-					<label class="field-label" for="demo-app-id">App ID</label>
-					<input id="demo-app-id" class="field-input">
-				</div>
-
-				<div class="field-row">
-					<label class="field-label" for="demo-app-key">App Key</label>
-					<input id="demo-app-key" class="field-input">
-				</div>
-			</fieldset>
+			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
 
 			<!-- TRANSACTION DETAIL FIELDS -->
 			<fieldset class="form-fieldset">
