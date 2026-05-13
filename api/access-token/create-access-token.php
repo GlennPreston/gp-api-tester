@@ -13,7 +13,14 @@ $pageTitle = page_title("Create Access Token");
 	</div>
 
 	<section id="mode-demo">
-		<p><i>Demo mode coming soon...</i></p>
+		<div class="form-fields">
+			<!-- CREDENTIAL FIELDS -->
+			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
+		</div>
+
+		<div class="form-actions">
+            <submit-button-component></submit-button-component>
+        </div>
 	</section>
 
 	<section id="mode-debug" class="hidden">
@@ -31,3 +38,5 @@ $pageTitle = page_title("Create Access Token");
 		</div>
 	</section>
 </div>
+
+<script src="./_scripts/js/create-access-token.js" type="text/javascript" defer></script>
