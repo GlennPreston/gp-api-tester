@@ -55,6 +55,13 @@
 	--http-patch-text: #c26a0c;
 	--http-delete-bg: #ffe6e6;
 	--http-delete-text: #b91c1c;
+
+	/* JSON Highlighting */
+	--json-key: #0451a5;
+	--json-string: #a31515;
+	--json-number: #098658;
+	--json-boolean: #0000ff;
+	--json-null: #af00db;
 }
 
 /* ---------------------------------------------------------------------------
@@ -74,4 +81,11 @@
 
 	/* Border */
 	--border-color: #838689;
+
+	/* JSON Highlighting */
+	--json-key: #9cdcfe;
+	--json-string: #ce9178;
+	--json-number: #b5cea8;
+	--json-boolean: #569cd6;
+	--json-null: #c586c0;
 }
