@@ -26,4 +26,5 @@ $pageTitle = page_title("API Overview");
 	<!-- JavaScript -->
 	<script>const BASE_URL = "<?= BASE_URL ?>";</script>
 	<script src="./_scripts/js/router.js" type="text/javascript" defer></script>
+	<script src="./_scripts/js/helpers.js" type="text/javascript" defer></script>
 </html>

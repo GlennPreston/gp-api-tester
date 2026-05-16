@@ -55,4 +55,4 @@ $pageTitle = page_title("Create Access Token");
 	</section>
 </div>
 
-<script src="./_scripts/js/create-access-token.js" type="text/javascript" defer></script>
+<script src="./_scripts/js/pages/create-access-token.js" type="text/javascript" defer></script>
