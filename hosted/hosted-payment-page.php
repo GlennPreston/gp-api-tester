@@ -15,7 +15,7 @@ $pageTitle = page_title("Hosted Payment Page");
 	<section id="mode-demo">
 		<div class="form-fields">
 			<!-- CREDENTIAL FIELDS -->
-			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
+			<demo-fieldset-credentials-component account-field="true""></demo-fieldset-credentials-component>
 
 			<!-- TRANSACTION DETAIL FIELDS -->
 			<fieldset class="form-fieldset">
@@ -42,8 +42,8 @@ $pageTitle = page_title("Hosted Payment Page");
 				</div>
 
 				<div class="field-row">
-					<label class="field-label" for="demo-autosettle">Auto Settle</label>
-					<input id="demo-autosettle" class="field-input" value="Yes">
+					<label class="field-label" for="demo-capturemode">Capture Mode</label>
+					<input id="demo-capturemode" class="field-input" value="AUTO">
 				</div>
 			</fieldset>
 
@@ -172,4 +172,4 @@ $pageTitle = page_title("Hosted Payment Page");
 	</section>
 </div>
 
-<script src="./_scripts/js/hosted-payment-page.js" type="text/javascript" defer></script>
+<script src="./_scripts/js/pages/hosted-payment-page.js" type="text/javascript" defer></script>
