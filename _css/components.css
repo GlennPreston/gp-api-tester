@@ -213,6 +213,7 @@ toggle-switch-component {
     padding: 12px;
     color: var(--content-text);
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 /* ---------------------------------------------------------------------------

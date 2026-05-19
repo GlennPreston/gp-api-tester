@@ -37,5 +37,5 @@ function displayResponse(responseData) {
     responseBlockEmpty.classList.add('hidden');
     responseBlockContent.classList.remove('hidden');
 
-    responseBlockContent.innerHTML = '<pre>' + syntaxHighlight(responseData.response.body) + '</pre>';
+    responseBlockContent.innerHTML = '<pre>' + syntaxHighlight(responseData) + '</pre>';
 }

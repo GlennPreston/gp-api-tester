@@ -14,7 +14,7 @@ submitComponent.addEventListener("click", async () => {
     try {
         const responseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', payload);
         console.log(responseData);
-        displayResponse(responseData);
+        displayResponse(responseData.response.body);
     } catch (err) {
         console.log(err);
     } finally {

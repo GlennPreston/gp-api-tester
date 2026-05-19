@@ -182,7 +182,6 @@ class SideBar extends HTMLElement {
     // --- Set active sidebar link ---
     setActiveLink(path) {
         const normalisedPath = "./" + path.replaceAll("\\", "/").replace(/^\.\//, "");
-        console.log(normalisedPath);
  
         this.querySelectorAll("a").forEach(link => {
             link.classList.toggle("active", link.getAttribute("href") === normalisedPath);
