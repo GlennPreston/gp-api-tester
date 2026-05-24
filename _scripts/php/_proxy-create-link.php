@@ -37,6 +37,31 @@ $body = [
     ],
 ];
 
+if (isset($input['threeDS'])) {
+    $body['payer']['email'] = $input['threeDS']['email'];
+
+    $body['payer']['mobile_phone']['country_code'] = $input['threeDS']['phoneNumber']['countryCode'];
+    $body['payer']['mobile_phone']['subscriber_number'] = $input['threeDS']['phoneNumber']['subscriberNumber'];
+
+    $body['payer']['billing_address']['line_1'] = $input['threeDS']['billingAddress']['line1'];
+    $body['payer']['billing_address']['line_2'] = $input['threeDS']['billingAddress']['line2'];
+    $body['payer']['billing_address']['line_3'] = $input['threeDS']['billingAddress']['line3'];
+    $body['payer']['billing_address']['city'] = $input['threeDS']['billingAddress']['city'];
+    $body['payer']['billing_address']['state'] = $input['threeDS']['billingAddress']['state'];
+    $body['payer']['billing_address']['postal_code'] = $input['threeDS']['billingAddress']['postalCode'];
+    $body['payer']['billing_address']['country'] = $input['threeDS']['billingAddress']['country'];
+
+    $body['order']['shipping_address']['line_1'] = $input['threeDS']['shippingAddress']['line1'];
+    $body['order']['shipping_address']['line_2'] = $input['threeDS']['shippingAddress']['line2'];
+    $body['order']['shipping_address']['line_3'] = $input['threeDS']['shippingAddress']['line3'];
+    $body['order']['shipping_address']['city'] = $input['threeDS']['shippingAddress']['city'];
+    $body['order']['shipping_address']['state'] = $input['threeDS']['shippingAddress']['state'];
+    $body['order']['shipping_address']['postal_code'] = $input['threeDS']['shippingAddress']['postalCode'];
+    $body['order']['shipping_address']['country'] = $input['threeDS']['shippingAddress']['country'];
+
+    $body['order']['payment_method_configuration']['authentication']['preference'] = $input['threeDS']['authenticationPreference'];
+}
+
 $endpoint  = 'https://apis.sandbox.globalpay.com/ucp/links';
 $json_body = json_encode($body);
 

@@ -64,18 +64,18 @@ $pageTitle = page_title("Hosted Payment Page");
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-billingstreet1">Billing Street 1</label>
-						<input id="demo-billingstreet1" class="field-input" value="Flat 123">
+						<label class="field-label" for="demo-billingline1">Billing Line 1</label>
+						<input id="demo-billingline1" class="field-input" value="Flat 123">
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-billingstreet2">Billing Street 2</label>
-						<input id="demo-billingstreet2" class="field-input" value="House 456">
+						<label class="field-label" for="demo-billingline2">Billing Line 2</label>
+						<input id="demo-billingline2" class="field-input" value="House 456">
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-billingstreet3">Billing Street 3</label>
-						<input id="demo-billingstreet3" class="field-input" value="Unit 4">
+						<label class="field-label" for="demo-billingline3">Billing Line 3</label>
+						<input id="demo-billingline3" class="field-input" value="Unit 4">
 					</div>
 
 					<div class="field-row">
@@ -99,18 +99,18 @@ $pageTitle = page_title("Hosted Payment Page");
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-shippingstreet1">Shipping Street 1</label>
-						<input id="demo-shippingstreet1" class="field-input" value="Apartment 852">
+						<label class="field-label" for="demo-shippingline1">Shipping Line 1</label>
+						<input id="demo-shippingline1" class="field-input" value="Apartment 852">
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-shippingstreet2">Shipping Street 2</label>
-						<input id="demo-shippingstreet2" class="field-input" value="Complex 741">
+						<label class="field-label" for="demo-shippingline2">Shipping Line 2</label>
+						<input id="demo-shippingline2" class="field-input" value="Complex 741">
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-shippingstreet3">Shipping Street 3</label>
-						<input id="demo-shippingstreet3" class="field-input" value="House 963">
+						<label class="field-label" for="demo-shippingline3">Shipping Line 3</label>
+						<input id="demo-shippingline3" class="field-input" value="House 963">
 					</div>
 
 					<div class="field-row">
@@ -139,8 +139,8 @@ $pageTitle = page_title("Hosted Payment Page");
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-challengerequestindicator">Challenge Request Indicator</label>
-						<input id="demo-challengerequestindicator" class="field-input" value="NO_PREFERENCE">
+						<label class="field-label" for="demo-authenticationpreference">Authentication Preference</label>
+						<input id="demo-authenticationpreference" class="field-input" value="NO_PREFERENCE">
 					</div>
 				</div>
 			</fieldset>

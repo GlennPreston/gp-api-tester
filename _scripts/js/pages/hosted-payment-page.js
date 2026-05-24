@@ -48,7 +48,7 @@ function linkPayload(accessToken) {
     const country = document.querySelector("#demo-country").value.trim();
     const captureMode = document.querySelector("#demo-capturemode").value.trim();
 
-    const linkPayload = {
+    let linkPayload = {
         accessToken,
         account,
         orderID,
@@ -57,6 +57,45 @@ function linkPayload(accessToken) {
         country,
         captureMode
     }
+
+    if (document.querySelector("#demo-3ds").checked) {
+        console.log("Checked");
+
+        Object.assign(linkPayload, {
+            threeDS: {
+                email: document.querySelector("#demo-email").value.trim(),
+                phoneNumber: {
+                    countryCode: document.querySelector("#demo-phonenumber-countrycode").value.trim(),
+                    subscriberNumber: document.querySelector("#demo-phonenumber-subscribernumber").value.trim()
+                },
+                billingAddress: {
+                    line1: document.querySelector("#demo-billingline1").value.trim(),
+                    line2: document.querySelector("#demo-billingline2").value.trim(),
+                    line3: document.querySelector("#demo-billingline3").value.trim(),
+                    city: document.querySelector("#demo-billingcity").value.trim(),
+                    state: document.querySelector("#demo-billingstate").value.trim(),
+                    postalCode: document.querySelector("#demo-billingpostalcode").value.trim(),
+                    country: document.querySelector("#demo-billingcountry").value.trim(),
+                },
+                shippingAddress: {
+                    line1: document.querySelector("#demo-shippingline1").value.trim(),
+                    line2: document.querySelector("#demo-shippingline2").value.trim(),
+                    line3: document.querySelector("#demo-shippingline3").value.trim(),
+                    city: document.querySelector("#demo-shippingcity").value.trim(),
+                    state: document.querySelector("#demo-shippingstate").value.trim(),
+                    postalCode: document.querySelector("#demo-shippingpostalcode").value.trim(),
+                    country: document.querySelector("#demo-shippingcountry").value.trim(),
+                },
+                addressMatchIndicator: document.querySelector("#demo-addressmatchindicator").value.trim(),
+                authenticationPreference: document.querySelector("#demo-authenticationpreference").value.trim()
+            }
+        });
+    }
+    else {
+        console.log("Not checked");
+    }
+
+    console.log(linkPayload);
 
     return linkPayload;
 }
