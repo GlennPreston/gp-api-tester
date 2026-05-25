@@ -25,8 +25,6 @@ if (!isset($pageTitle)) {
 		<!-- Components -->
 		<script src="./_components/navbar-component.js" type="text/javascript" defer></script>
 		<script src="./_components/sidebar-component.js" type="text/javascript" defer></script>
-		<script src="./_components/mode-toggle-component.js" type="text/javascript" defer></script>
-		<script src="./_components/method-dropdown-component.js" type="text/javascript" defer></script>
 		<script src="./_components/toggle-switch-component.js" type="text/javascript" defer></script>
 		<script src="./_components/submit-button-component.js" type="text/javascript" defer></script>
 		<script src="./_components/demo-fieldset-credentials-component.js" type="text/javascript" defer></script>

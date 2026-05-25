@@ -166,10 +166,6 @@ $pageTitle = page_title("Hosted Payment Page");
             </div>
 		</div>
 	</section>
-
-	<section id="mode-debug" class="hidden">
-		<p><i>Debug mode coming soon...</i></p>
-	</section>
 </div>
 
 <script src="./_scripts/js/pages/hosted-payment-page.js" type="text/javascript" defer></script>

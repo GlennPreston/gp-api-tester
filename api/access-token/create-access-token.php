@@ -8,8 +8,6 @@ $pageTitle = page_title("Create Access Token");
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
 	<div class="content-header">
 		<h2>Create Access Token</h2>
-
-		<mode-toggle-component></mode-toggle-component>
 	</div>
 
 	<section id="mode-demo">
@@ -35,21 +33,6 @@ $pageTitle = page_title("Create Access Token");
 				<div class="response-block-body-content hidden">
 					<!--pre class="response-block-body-content-output">Hello World!</pre-->
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="mode-debug" class="hidden">
-		<!--p><i>Debug mode coming soon...</i></p-->
-		<div class="debug-block">
-			<div class="debug-block-header">
-				<span class="debug-block-title">Endpoint</span>
-			</div>
-
-			<div class="debug-endpoint-row">
-				<method-dropdown-component method="POST"></method-dropdown-component>
-
-				<input id="debug-endpoint-input" class="debug-endpoint-input" type="text" value="https://apis.sandbox.globalpay.com/ucp/accesstokens">
 			</div>
 		</div>
 	</section>
