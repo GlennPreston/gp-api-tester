@@ -19,7 +19,7 @@ $pageTitle = page_title("Hosted Payment Page");
 
 			<!-- TRANSACTION DETAIL FIELDS -->
 			<fieldset class="form-fieldset">
-				<legend>Transaction Details</legend>
+				<legend><span class="legend-text">Transaction Details</span></legend>
 
 				<div class="field-row">
 					<label class="field-label" for="demo-orderid">Order ID</label>
@@ -49,7 +49,7 @@ $pageTitle = page_title("Hosted Payment Page");
 
 			<!-- 3DS FIELDS -->
 			<fieldset class="form-fieldset">
-				<legend>3DS<toggle-switch-component input-id="demo-3ds"></toggle-switch-component></legend>
+				<legend><span class="legend-text">3DS</span><toggle-switch-component input-id="demo-3ds" is-fieldset=true></toggle-switch-component></legend>
 
 				<div id="demo-3ds-fields" class="form-fieldset-fields">
 					<div class="field-row">
@@ -147,7 +147,7 @@ $pageTitle = page_title("Hosted Payment Page");
 
 			<!-- CARD STORAGE FIELDS -->
 			<fieldset class="form-fieldset">
-				<legend>Card Storage<toggle-switch-component input-id="demo-cardstorage"></toggle-switch-component></legend>
+				<legend><span class="legend-text">Card Storage</span><toggle-switch-component input-id="demo-cardstorage" is-fieldset=true></toggle-switch-component></legend>
 
 				<div id="demo-cardstorage-fields" class="form-fieldset-fields">
 
@@ -188,7 +188,7 @@ $pageTitle = page_title("Hosted Payment Page");
 
 			<!-- DIGITAL WALLETS FIELDS -->
 			<fieldset class="form-fieldset">
-				<legend>Digital Wallets<toggle-switch-component input-id="demo-digitalwallets"></toggle-switch-component></legend>
+				<legend><span class="legend-text">Digital Wallets</span><toggle-switch-component input-id="demo-digitalwallets" is-fieldset=true></toggle-switch-component></legend>
 
 				<div id="demo-digitalwallets-fields" class="form-fieldset-fields">
 					<div class="field-row">
