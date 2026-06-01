@@ -1,3 +1,4 @@
+{
 const submitComponent = document.querySelector("submit-button-component");
 
 submitComponent.addEventListener("click", async () => {
@@ -21,3 +22,4 @@ submitComponent.addEventListener("click", async () => {
         submitComponent.setLoading(false);
     }
 });
+}

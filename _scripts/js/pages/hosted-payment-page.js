@@ -1,3 +1,4 @@
+{
 const submitComponent = document.querySelector("submit-button-component");
 
 submitComponent.addEventListener("click", async () => {
@@ -177,3 +178,4 @@ payerStatus.addEventListener("change", () => {
         }
     });
 });
+}
