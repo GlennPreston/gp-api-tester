@@ -135,6 +135,16 @@ function linkPayload(accessToken) {
         });
     }
 
+    // Digital wallets fields
+    if (document.querySelector("#demo-digitalwallets").checked) {
+        Object.assign(linkPayload, {
+            digitalWallets: {
+                googlePay: document.querySelector("#demo-googlepay").checked,
+                applePay: document.querySelector("#demo-applepay").checked
+            }
+        });
+    }
+
     return linkPayload;
 }
 

@@ -191,6 +191,15 @@ $pageTitle = page_title("Hosted Payment Page");
 				<legend>Digital Wallets<toggle-switch-component input-id="demo-digitalwallets"></toggle-switch-component></legend>
 
 				<div id="demo-digitalwallets-fields" class="form-fieldset-fields">
+					<div class="field-row">
+						<label class="field-label" for="demo-googlepay">Google Pay</label>
+						<toggle-switch-component input-id="demo-googlepay" is-checked=true></toggle-switch-component>
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-applepay">Apple Pay</label>
+						<toggle-switch-component input-id="demo-applepay" is-checked=true></toggle-switch-component>
+					</div>
 				</div>
 			</fieldset>
 

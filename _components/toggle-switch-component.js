@@ -1,7 +1,7 @@
 class ToggleSwitch extends HTMLElement {
 	// Observed attributes
     static get observedAttributes() {
-        return ['input-id'];
+        return ['input-id', 'is-checked', 'is-fieldset'];
     }
 
     constructor() {
@@ -14,15 +14,19 @@ class ToggleSwitch extends HTMLElement {
 
     connectedCallback() {
         this._inputID = this.getAttribute('input-id');
+        this._isChecked = this.getAttribute('is-checked') ? 'checked' : '';
+        this._isFieldset = this.getAttribute('is-fieldset') ? this.getAttribute('is-fieldset') : false;
 
         this.innerHTML = `
 			<label class="toggle-switch">
-                <input id="${this._inputID}" type="checkbox">
+                <input id="${this._inputID}" type="checkbox" ${this._isChecked}>
                 <span class="toggle-track"><span class="toggle-thumb"></span></span>
             </label>
 		`;
 
-        this.initToggle();
+        if (this._isFieldset) {
+            this.initToggle();
+        }
     }
 
     // -------------------------------------------------------------------------
