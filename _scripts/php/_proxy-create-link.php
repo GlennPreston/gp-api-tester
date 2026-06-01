@@ -37,6 +37,7 @@ $body = [
     ],
 ];
 
+// 3DS fields
 if (isset($input['threeDS'])) {
     $body['payer']['email'] = $input['threeDS']['email'];
 
@@ -60,6 +61,16 @@ if (isset($input['threeDS'])) {
     $body['order']['shipping_address']['country'] = $input['threeDS']['shippingAddress']['country'];
 
     $body['order']['payment_method_configuration']['authentication']['preference'] = $input['threeDS']['authenticationPreference'];
+}
+
+// Card storage fields
+if (isset($input['cardStorage'])) {
+    $body['payer']['status'] = $input['cardStorage']['payerStatus'];
+    $body['payer']['id'] = $input['cardStorage']['payerID'];
+
+    if ($input['cardStorage']['payerStatus'] == "NEW") {
+        $body['order']['payment_method_configuration']['storage_mode'] = $input['cardStorage']['storageMode'];
+    }
 }
 
 $endpoint  = 'https://apis.sandbox.globalpay.com/ucp/links';

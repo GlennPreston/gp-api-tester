@@ -4,11 +4,27 @@ submitComponent.addEventListener("click", async () => {
     // Send payload to proxy
     submitComponent.setLoading(true);
     try {
-        const accessTokenResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
-        console.log(accessTokenResponseData);
+        if (document.querySelector("#demo-cardstorage").checked && document.querySelector("#demo-payerstatus").value == "NEW") {
+            const accessTokenResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
+            console.log(accessTokenResponseData);
+
+            if (accessTokenResponseData.response.body.token != null && accessTokenResponseData.response.body.token != "") {
+                const payerResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-payer.php', payerPayload(accessTokenResponseData.response.body.token));
+                console.log(payerResponseData);
+
+                if (payerResponseData.response.body.id != null && payerResponseData.response.body.id != "")
+                {
+                    document.querySelector("#demo-payerid").value = payerResponseData.response.body.id;
+                }
+            }
+        }
+
+
+        const accessTokenResponseData2 = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
+        console.log(accessTokenResponseData2);
         
-        if (accessTokenResponseData.response.body.token != null && accessTokenResponseData.response.body.token != "") {
-            const linkResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-link.php', linkPayload(accessTokenResponseData.response.body.token));
+        if (accessTokenResponseData2.response.body.token != null && accessTokenResponseData2.response.body.token != "") {
+            const linkResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-link.php', linkPayload(accessTokenResponseData2.response.body.token));
             console.log(linkResponseData);
 
             if (linkResponseData.response.body.url != null && linkResponseData.response.body.url != "")
@@ -27,6 +43,7 @@ submitComponent.addEventListener("click", async () => {
 });
 
 
+// Payload for Create Access Token request
 function accessTokenPayload() {
     const appID = document.querySelector("#demo-app-id").value.trim();
 	const appKey = document.querySelector("#demo-app-key").value.trim();
@@ -40,6 +57,22 @@ function accessTokenPayload() {
 }
 
 
+// Payload for Create Payer request
+function payerPayload(accessToken) {
+    const firstName = document.querySelector("#demo-payerfirstname").value.trim();
+	const lastName = document.querySelector("#demo-payerlastname").value.trim();
+
+    const payerPayload = {
+        accessToken,
+        firstName,
+        lastName
+    }
+
+    return payerPayload;
+}
+
+
+// Payload for Create Link request
 function linkPayload(accessToken) {
     const account = document.querySelector("#demo-account").value.trim();
     const orderID = document.querySelector("#demo-orderid").value.trim();
@@ -58,9 +91,8 @@ function linkPayload(accessToken) {
         captureMode
     }
 
+    // 3DS fields
     if (document.querySelector("#demo-3ds").checked) {
-        console.log("Checked");
-
         Object.assign(linkPayload, {
             threeDS: {
                 email: document.querySelector("#demo-email").value.trim(),
@@ -91,11 +123,47 @@ function linkPayload(accessToken) {
             }
         });
     }
-    else {
-        console.log("Not checked");
-    }
 
-    console.log(linkPayload);
+    // Card storage fields
+    if (document.querySelector("#demo-cardstorage").checked) {
+        Object.assign(linkPayload, {
+            cardStorage: {
+                payerStatus: document.querySelector("#demo-payerstatus").value.trim(),
+                payerID: document.querySelector("#demo-payerid").value.trim(),
+                storageMode: document.querySelector("#demo-storagemode").value.trim()
+            }
+        });
+    }
 
     return linkPayload;
 }
+
+// -------------------------------------------------------------------------
+// Helpers
+// -------------------------------------------------------------------------
+
+const payerStatus = document.querySelector("#demo-payerstatus");
+const payerStatusOptions = Array.from(payerStatus.options).map(option => option.value);
+const payerFirstName = document.querySelector("#demo-payerfirstname");
+const payerLastName = document.querySelector("#demo-payerlastname");
+const storageMode = document.querySelector("#demo-storagemode");
+const payerID = document.querySelector("#demo-payerid");
+
+payerStatus.addEventListener("change", () => {
+    payerStatusOptions.forEach(option => {
+        if (payerStatus.value == "NEW") {
+            payerFirstName.parentElement.classList.remove('hidden');
+            payerLastName.parentElement.classList.remove('hidden');
+            storageMode.parentElement.parentElement.classList.remove('hidden');
+
+            payerID.parentElement.classList.add('hidden');
+        }
+        else if (payerStatus.value == "ACTIVE") {
+            payerFirstName.parentElement.classList.add('hidden');
+            payerLastName.parentElement.classList.add('hidden');
+            storageMode.parentElement.parentElement.classList.add('hidden');
+
+            payerID.parentElement.classList.remove('hidden');
+        }
+    });
+});

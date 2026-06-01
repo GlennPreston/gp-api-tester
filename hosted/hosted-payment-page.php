@@ -150,6 +150,39 @@ $pageTitle = page_title("Hosted Payment Page");
 				<legend>Card Storage<toggle-switch-component input-id="demo-cardstorage"></toggle-switch-component></legend>
 
 				<div id="demo-cardstorage-fields" class="form-fieldset-fields">
+
+					<div class="field-row">
+						<field-select-component
+							input-id="demo-payerstatus"
+							label="Payer Status"
+							options="NEW,ACTIVE"
+							value="NEW">
+						</field-select-component>
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-payerfirstname">Payer First Name</label>
+						<input id="demo-payerfirstname" class="field-input" value="James">
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-payerlastname">Payer Last Name</label>
+						<input id="demo-payerlastname" class="field-input" value="Mason">
+					</div>
+
+					<div class="field-row">
+						<field-select-component
+							input-id="demo-storagemode"
+							label="Storage Mode"
+							options="PROMPT,ON_SUCCESS,ALWAYS"
+							value="PROMPT">
+						</field-select-component>
+					</div>
+
+					<div class="field-row hidden">
+						<label class="field-label" for="demo-payerid">Payer ID</label>
+						<input id="demo-payerid" class="field-input">
+					</div>
 				</div>
 			</fieldset>
 
