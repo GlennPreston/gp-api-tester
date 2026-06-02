@@ -170,6 +170,11 @@ $pageTitle = page_title("Hosted Payment Page");
 						<input id="demo-payerlastname" class="field-input" value="Mason">
 					</div>
 
+					<div class="field-row hidden">
+						<label class="field-label" for="demo-payerid">Payer ID</label>
+						<input id="demo-payerid" class="field-input">
+					</div>
+
 					<div class="field-row">
 						<field-select-component
 							input-id="demo-storagemode"
@@ -177,11 +182,6 @@ $pageTitle = page_title("Hosted Payment Page");
 							options="PROMPT,ON_SUCCESS,ALWAYS"
 							value="PROMPT">
 						</field-select-component>
-					</div>
-
-					<div class="field-row hidden">
-						<label class="field-label" for="demo-payerid">Payer ID</label>
-						<input id="demo-payerid" class="field-input">
 					</div>
 				</div>
 			</fieldset>

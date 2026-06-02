@@ -65,12 +65,10 @@ if (isset($input['threeDS'])) {
 
 // Card storage fields
 if (isset($input['cardStorage'])) {
-    $body['payer']['status'] = $input['cardStorage']['payerStatus'];
+    $body['payer']['status'] = 'ACTIVE';
     $body['payer']['id'] = $input['cardStorage']['payerID'];
 
-    if ($input['cardStorage']['payerStatus'] == "NEW") {
-        $body['order']['payment_method_configuration']['storage_mode'] = $input['cardStorage']['storageMode'];
-    }
+    $body['order']['payment_method_configuration']['storage_mode'] = $input['cardStorage']['storageMode'];
 }
 
 // Digital wallets fields

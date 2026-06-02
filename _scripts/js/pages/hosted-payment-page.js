@@ -165,14 +165,12 @@ payerStatus.addEventListener("change", () => {
         if (payerStatus.value == "NEW") {
             payerFirstName.parentElement.classList.remove('hidden');
             payerLastName.parentElement.classList.remove('hidden');
-            storageMode.parentElement.parentElement.classList.remove('hidden');
 
             payerID.parentElement.classList.add('hidden');
         }
         else if (payerStatus.value == "ACTIVE") {
             payerFirstName.parentElement.classList.add('hidden');
             payerLastName.parentElement.classList.add('hidden');
-            storageMode.parentElement.parentElement.classList.add('hidden');
 
             payerID.parentElement.classList.remove('hidden');
         }
