@@ -1,7 +1,13 @@
 {
+const responseBlockEmpty = document.querySelector(".response-block-body-empty");
+const responseBlockContent = document.querySelector(".response-block-body-content");
+const responseBlock = document.querySelector(".response-block-outer");
+
 const submitComponent = document.querySelector("submit-button-component");
 
 submitComponent.addEventListener("click", async () => {
+    hideResponseBlock(responseBlockEmpty, responseBlockContent, responseBlock);
+
     // Send payload to proxy
     submitComponent.setLoading(true);
     try {
@@ -17,6 +23,12 @@ submitComponent.addEventListener("click", async () => {
                 {
                     document.querySelector("#demo-payerid").value = payerResponseData.response.body.id;
                 }
+                else {
+                    throw new Error(JSON.stringify(payerResponseData));
+                }
+            }
+            else {
+                throw new Error(JSON.stringify(accessTokenResponseData));
             }
         }
 
@@ -32,12 +44,16 @@ submitComponent.addEventListener("click", async () => {
             {
                 window.location.href = linkResponseData.response.body.url;
             }
+            else {
+                throw new Error(JSON.stringify(linkResponseData));
+            }
         }
         else {
-            console.log("No access token");
+            throw new Error(JSON.stringify(accessTokenResponseData2));
         }
     } catch (err) {
-        console.log(err);
+        console.log('Error: ' + JSON.stringify(JSON.parse(err.message).response.body));
+        showResponseBlock(JSON.parse(err.message).response.body, responseBlockEmpty, responseBlockContent, responseBlock);
     } finally {
         submitComponent.setLoading(false);
     }

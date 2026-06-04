@@ -132,10 +132,14 @@ toggle-switch-component {
    Response block
 --------------------------------------------------------------------------- */
 
+.response-block-outer {
+    margin: 2px 0;
+    padding: 18px 0;
+}
+
 .response-block {
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    margin-top: 20px;
 }
 
 .response-block-header {

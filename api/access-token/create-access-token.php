@@ -20,17 +20,19 @@ $pageTitle = page_title("Create Access Token");
             <submit-button-component></submit-button-component>
         </div>
 
-		<div class="response-block">
-			<div class="response-block-header">
-				<span class="response-block-title">Response</span>
-			</div>
+		<div class="response-block-outer">
+			<div class="response-block">
+				<div class="response-block-header">
+					<span class="response-block-title">Response</span>
+				</div>
 
-			<div class="response-block-body">
-				<div class="response-block-body-empty">
-                    <pre>Send a request to see the response</pre>
-                </div>
+				<div class="response-block-body">
+					<div class="response-block-body-empty">
+						<pre>Send a request to see the response</pre>
+					</div>
 
-				<div class="response-block-body-content hidden">
+					<div class="response-block-body-content hidden">
+					</div>
 				</div>
 			</div>
 		</div>
