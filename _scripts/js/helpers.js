@@ -30,12 +30,17 @@ function syntaxHighlight(json) {
 }
 
 // Display api response in response block
-function displayResponse(responseData) {
-    const responseBlockEmpty = document.querySelector(".response-block-body-empty");
-    const responseBlockContent = document.querySelector(".response-block-body-content");
-
+function displayResponse(responseData, responseBlockEmpty, responseBlockContent) {
     responseBlockEmpty.classList.add('hidden');
     responseBlockContent.classList.remove('hidden');
 
     responseBlockContent.innerHTML = '<pre>' + syntaxHighlight(responseData) + '</pre>';
+}
+
+// Display api response in response block
+function resetResponse(responseBlockEmpty, responseBlockContent) {
+    responseBlockEmpty.classList.remove('hidden');
+    responseBlockContent.classList.add('hidden');
+
+    responseBlockContent.innerHTML = '<pre></pre>';
 }

@@ -31,7 +31,6 @@ $pageTitle = page_title("Create Access Token");
                 </div>
 
 				<div class="response-block-body-content hidden">
-					<!--pre class="response-block-body-content-output">Hello World!</pre-->
 				</div>
 			</div>
 		</div>
