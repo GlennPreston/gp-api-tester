@@ -27,7 +27,7 @@ class DemoFieldsetCredentials extends HTMLElement {
 
 		this.innerHTML = `
 			<fieldset class="form-fieldset">
-				<legend>Credentials</legend>
+				<legend><span class="legend-text">Credentials</span></legend>
 
 				<div class="field-row">
 					<label class="field-label" for="demo-app-id">App ID</label>
