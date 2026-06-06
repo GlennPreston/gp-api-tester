@@ -1,5 +1,5 @@
 <?php
-if (empty($_SERVER['HTTP_X_INTERNAL_NAVIGATION'])) {
+if (empty($_GET['_nav'])) {
     $fullPath = str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']);
     $appRoot  = str_replace('\\', '/', APP_ROOT);
     $path     = ltrim(str_replace($appRoot, '', $fullPath), '/');
@@ -15,7 +15,6 @@ if (empty($_SERVER['HTTP_X_INTERNAL_NAVIGATION'])) {
     }
 
     header("Location: " . BASE_URL . $section . "/overview.php?content=" . $path);
-
     exit;
 }
 ?>

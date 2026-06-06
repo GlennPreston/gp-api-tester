@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("popstate", handleRoute);
 
 // ---------------------------------------------------------------------------
-// Sidebar – link clicks
+// Sidebar link clicks
 // ---------------------------------------------------------------------------
 
 function bindSidebarLinks() {
@@ -40,13 +40,13 @@ function bindSidebarLinks() {
 // Routing
 // ---------------------------------------------------------------------------
 
-function handleRoute() {
+async function handleRoute() {
     const params = new URLSearchParams(location.search);
     const directLoad = params.get("content");
 
     if (directLoad) {
         const path = normalisePath(directLoad);
-        loadContent(path, false);
+        await loadContent(path, false);
         history.replaceState({ path }, "", BASE_URL + path);
         return;
     }
@@ -68,9 +68,10 @@ function handleRoute() {
 // ---------------------------------------------------------------------------
 
 async function loadContent(path, pushState = true) {
-    const response = await fetch(BASE_URL + path, {
-        headers: { "X-Internal-Navigation": "true" }
-    });
+    // Add ?_nav=1 to signal an internal fetch â€” unlike headers,
+    // query params are not replayed by Chrome tab duplication.
+    const sep = path.includes('?') ? '&' : '?';
+    const response = await fetch(BASE_URL + path + sep + '_nav=1');
 
     container.innerHTML = await response.text();
     
