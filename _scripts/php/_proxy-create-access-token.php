@@ -29,6 +29,11 @@ $body = [
     'grant_type' => 'client_credentials',
 ];
 
+// Permission fields
+if (isset($input['permissions'])) {
+    $body['permissions'] = $input['permissions'];
+}
+
 $endpoint  = 'https://apis.sandbox.globalpay.com/ucp/accesstoken';
 $json_body = json_encode($body);
 

@@ -6,6 +6,62 @@ $pageTitle = page_title("Hosted Fields");
 ?>
 
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
-	<h2>Hosted Fields</h2>
-	<p><i>Coming soon...<i></p>
+	<div class="content-header">
+		<h2>Hosted Fields</h2>
+	</div>
+
+	<section id="mode-demo">
+		<div class="form-fields">
+			<!-- CREDENTIAL FIELDS -->
+			<demo-fieldset-credentials-component account-field="true"></demo-fieldset-credentials-component>
+
+			<div class="form-actions">
+                <submit-button-component></submit-button-component>
+            </div>
+
+			<div class="hosted-fields-spinner hidden" id="hosted-fields-spinner">
+				<div class="hosted-fields-spinner-dots">
+					<span></span><span></span><span></span>
+				</div>
+				<p>Loading hosted fields</p>
+			</div>
+
+			<div class="hosted-fields">
+				<form id="payment-form">
+					<label for="card-number">Card Number</label>
+					<div id="card-number"></div>
+
+					<label for="card-expiration">Expiry Date</label>
+					<div id="card-expiration"></div>
+
+					<label for="card-cvv">Security Code</label>
+					<div id="card-cvv"></div>
+
+					<label for="card-holder-name">Cardholder Name</label>
+					<div id="card-holder-name"></div>
+
+					<div id="submit-button"></div>
+				</form>
+			</div>
+
+			<div class="response-block-outer hidden">
+				<div class="response-block">
+					<div class="response-block-header">
+						<span class="response-block-title">Response</span>
+					</div>
+
+					<div class="response-block-body">
+						<div class="response-block-body-empty">
+							<pre>Send a request to see the response</pre>
+						</div>
+
+						<div class="response-block-body-content hidden">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section
 </div>
+
+<script src="./_scripts/js/pages/hosted-fields.js" type="text/javascript" defer></script>
