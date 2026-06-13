@@ -37,7 +37,7 @@ submitComponent.addEventListener("click", async () => {
         console.log(accessTokenResponseData2);
         
         if (accessTokenResponseData2.response.body.token != null && accessTokenResponseData2.response.body.token != "") {
-            const linkResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-link.php', linkPayload(accessTokenResponseData2.response.body.token));
+            const linkResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-link-hpp.php', linkPayload(accessTokenResponseData2.response.body.token));
             console.log(linkResponseData);
 
             if (linkResponseData.response.body.url != null && linkResponseData.response.body.url != "")
