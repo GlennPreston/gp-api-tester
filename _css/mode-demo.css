@@ -83,8 +83,6 @@ field-select-component {
     border-radius: 8px;
     outline: none;
     box-sizing: border-box;
-    transition: border-color var(--transition-duration) var(--transition-easing),
-                background-color  var(--transition-duration) var(--transition-easing);
 }
 
 .field-input:focus {
