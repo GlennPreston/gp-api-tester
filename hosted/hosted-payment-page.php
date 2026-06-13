@@ -8,8 +8,6 @@ $pageTitle = page_title("Hosted Payment Page");
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
 	<div class="content-header">
 		<h2>Hosted Payment Page</h2>
-
-		<mode-toggle-component></mode-toggle-component>
 	</div>
 
 	<section id="mode-demo">
