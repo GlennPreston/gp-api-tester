@@ -302,7 +302,7 @@ sidebar-component {
     justify-content: center;
     background: var(--content-bg);
     color: var(--content-text);
-    padding: 20px 30px;
+    padding: 10px 30px;
     overflow-y: auto;
 }
 
