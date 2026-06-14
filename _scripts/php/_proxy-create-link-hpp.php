@@ -21,11 +21,10 @@ if (!$input) {
 $body = [
     'account_name' => $input['account'],
     'type' => 'HOSTED_PAYMENT_PAGE',
-    'reference' => $input['orderID'],
+    'reference' => uniqid(),
     'order' => [
         'amount' => $input['amount'],
         'currency' => $input['currency'],
-        'reference' => $input['orderID'],
         'transaction_configuration' => [
             'channel' => 'CNP',
             'country' => $input['country'],
@@ -36,6 +35,8 @@ $body = [
         ],
     ],
 ];
+
+$body['order']['reference'] = $body['reference'];
 
 // 3DS fields
 if (isset($input['threeDS'])) {

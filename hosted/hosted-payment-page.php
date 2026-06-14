@@ -20,11 +20,6 @@ $pageTitle = page_title("Hosted Payment Page");
 				<legend><span class="legend-text">Transaction Details</span></legend>
 
 				<div class="field-row">
-					<label class="field-label" for="demo-orderid">Order ID</label>
-					<input id="demo-orderid" class="field-input" value="12345678">
-				</div>
-
-				<div class="field-row">
 					<label class="field-label" for="demo-amount">Amount</label>
 					<input id="demo-amount" class="field-input" value="1000">
 				</div>
