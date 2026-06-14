@@ -92,7 +92,6 @@ function payerPayload(accessToken) {
 // Payload for Create Link request
 function linkPayload(accessToken) {
     const account = document.querySelector("#demo-account").value.trim();
-    const orderID = document.querySelector("#demo-orderid").value.trim();
     const amount = document.querySelector("#demo-amount").value.trim();
     const currency = document.querySelector("#demo-currency").value.trim();
     const country = document.querySelector("#demo-country").value.trim();
@@ -101,7 +100,6 @@ function linkPayload(accessToken) {
     let linkPayload = {
         accessToken,
         account,
-        orderID,
         amount,
         currency,
         country,
