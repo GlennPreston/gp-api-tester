@@ -78,15 +78,7 @@ function getBrandColors() {
 // has already been issued and the fields are showing).
 new MutationObserver(() => {
     if (hostedfieldsBlock.style.visibility === 'visible') {
-        hostedfieldsBlock.style.visibility = 'hidden';
-        hostedfieldsSpinner.classList.remove('hidden');
-        cardForm.dispose();
-        cardForm = initCardForm();
-
-        cardForm.ready(() => {
-            hostedfieldsSpinner.classList.add('hidden');
-            hostedfieldsBlock.style.visibility = 'visible';
-        });
+        initHostedFields();
     }
 }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
@@ -150,7 +142,7 @@ function initCardForm() {
     });
 }
 
-function initHostedFields(accessToken) {
+function initHostedFields(accessToken = '') {
     if(cardForm != null) {
         cardForm.dispose();
     }
@@ -163,16 +155,20 @@ function initHostedFields(accessToken) {
     cardForm = initCardForm();
 
     // configuring Hosted Fields
-    GlobalPayments.configure({
-        accessToken: accessToken,
-        apiVersion: "2021-03-22",
-        env: "sandbox" // or "production"
-    });
+    if(accessToken != '') {
+        GlobalPayments.configure({
+            accessToken: accessToken,
+            apiVersion: "2021-03-22",
+            env: "sandbox" // or "production"
+        });
+    }
+
     // method to notify that hosted fields have been initialized
     cardForm.ready(() => {
         console.log("Registration of all credit card fields occurred");
         hostedfieldsSpinner.classList.add('hidden');
         hostedfieldsBlock.style.visibility = 'visible';
+        slowScrollTo(document.querySelector(".content"), hostedfieldsBlock, 1000);
     });
    
     // Display the tokenisation response in the response block instead of
