@@ -91,19 +91,13 @@ function payerPayload(accessToken) {
 
 // Payload for Create Link request
 function linkPayload(accessToken) {
-    const account = document.querySelector("#demo-account").value.trim();
-    const amount = document.querySelector("#demo-amount").value.trim();
-    const currency = document.querySelector("#demo-currency").value.trim();
-    const country = document.querySelector("#demo-country").value.trim();
-    const captureMode = document.querySelector("#demo-capturemode").value.trim();
-
     let linkPayload = {
         accessToken,
-        account,
-        amount,
-        currency,
-        country,
-        captureMode
+        account: document.querySelector("#demo-account").value.trim(),
+        amount: document.querySelector("#demo-amount").value.trim(),
+        currency: document.querySelector("#demo-currency").value.trim(),
+        country: document.querySelector("#demo-country").value.trim(),
+        captureMode: document.querySelector("#demo-capturemode").value.trim()
     }
 
     // 3DS fields
