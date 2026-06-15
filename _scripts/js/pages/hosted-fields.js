@@ -147,13 +147,6 @@ function initHostedFields(accessToken = '') {
         cardForm.dispose();
     }
 
-    // Unhide before reinit so iframes can measure their container.
-    // visibility:hidden keeps layout intact without showing empty fields.
-    hostedfieldsBlock.style.visibility = 'hidden';
-    hostedfieldsBlock.classList.remove('hidden');
-    hostedfieldsSpinner.classList.remove('hidden');
-    cardForm = initCardForm();
-
     // configuring Hosted Fields
     if(accessToken != '') {
         GlobalPayments.configure({
@@ -162,6 +155,13 @@ function initHostedFields(accessToken = '') {
             env: "sandbox" // or "production"
         });
     }
+
+    // Unhide before reinit so iframes can measure their container.
+    // visibility:hidden keeps layout intact without showing empty fields.
+    hostedfieldsBlock.style.visibility = 'hidden';
+    hostedfieldsBlock.classList.remove('hidden');
+    hostedfieldsSpinner.classList.remove('hidden');
+    cardForm = initCardForm();
 
     // method to notify that hosted fields have been initialized
     cardForm.ready(() => {

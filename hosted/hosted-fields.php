@@ -23,7 +23,7 @@ $pageTitle = page_title("Hosted Fields");
 				<div class="hosted-fields-spinner-dots">
 					<span></span><span></span><span></span>
 				</div>
-				<p>Loading hosted fields</p>
+				<p>Loading Hosted Fields</p>
 			</div>
 
 			<div class="hosted-fields">
