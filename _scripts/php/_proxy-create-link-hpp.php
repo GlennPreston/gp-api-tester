@@ -75,11 +75,11 @@ if (isset($input['cardStorage'])) {
 // Digital wallets fields
 if (isset($input['digitalWallets'])) {
     if ($input['digitalWallets']['googlePay']) {
-        $body['order']['payment_method_configuration']['digital_wallets']['provider'][] = 'GOOGLE_PAY';
+        $body['order']['payment_method_configuration']['digital_wallets']['provider'][] = 'googlepay';
     }
 
     if ($input['digitalWallets']['applePay']) {
-        $body['order']['payment_method_configuration']['digital_wallets']['provider'][] = 'APPLE_PAY';
+        $body['order']['payment_method_configuration']['digital_wallets']['provider'][] = 'applepay';
     }
 }
 
