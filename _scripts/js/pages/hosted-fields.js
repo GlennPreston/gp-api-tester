@@ -186,7 +186,6 @@ function initHostedFields(accessToken = '') {
     // submitting the form — this is a test tool, not a checkout page.
     cardForm.on("token-success", (resp) => {
         console.log(resp);
-
         transactionRequest(resp);
     });
 

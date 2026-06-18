@@ -16,7 +16,10 @@ submitComponent.addEventListener("click", async () => {
     // Send payload to proxy
     submitComponent.setLoading(true);
     try {
-        const accessTokenResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
+        let accessTokenPermissions = [
+            "PMT_POST_Create_Single"
+        ];
+        const accessTokenResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload(accessTokenPermissions));
         console.log(accessTokenResponseData);
         
         if (accessTokenResponseData.response.body.token != null && accessTokenResponseData.response.body.token != "") {
@@ -37,12 +40,9 @@ submitComponent.addEventListener("click", async () => {
 
 
 // Payload for Create Access Token request
-function accessTokenPayload() {
+function accessTokenPayload(permissions = null) {
     const appID = document.querySelector("#demo-app-id").value.trim();
 	const appKey = document.querySelector("#demo-app-key").value.trim();
-    const permissions = [
-        "PMT_POST_Create_Single"
-    ]
 
     const accessTokenPayload = {
         appID,
@@ -51,6 +51,17 @@ function accessTokenPayload() {
     }
 
     return accessTokenPayload;
+}
+
+// Payload for Create Transaction request
+function transactionPayload(accessToken, pmtID) {
+    let transactionPayload = {
+        accessToken,
+        account: document.querySelector("#demo-account").value.trim(),
+        pmtID: pmtID
+    }
+
+    return transactionPayload;
 }
 
 // -------------------------------------------------------------------------
@@ -72,7 +83,7 @@ function initDropInUI(accessToken = '') {
         cardFormContainer.innerHTML = "";
     }
 
-    // configuring Hosted Fields
+    // configuring Drop-In UI
     if(accessToken != '') {
         GlobalPayments.configure({
             accessToken: accessToken,
@@ -100,7 +111,7 @@ function initDropInUI(accessToken = '') {
     // submitting the form — this is a test tool, not a checkout page.
     cardForm.on("token-success", (resp) => {
         console.log(resp);
-        showResponseBlock(resp, responseBlockEmpty, responseBlockContent, responseBlock);
+        transactionRequest(resp);
     });
 
     // add error handling if token generation is not successful
@@ -114,5 +125,35 @@ function initDropInUI(accessToken = '') {
     cardForm.on("card-number", "register", () => {
         console.log("Registration of Card Number occurred");
     });
+}
+
+async function transactionRequest(resp) {
+    try {
+        const accessTokenResponseData2 = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
+        console.log(accessTokenResponseData2);
+        
+        if (accessTokenResponseData2.response.body.token != null && accessTokenResponseData2.response.body.token != "") {
+            const transactionResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-transaction.php', transactionPayload(accessTokenResponseData2.response.body.token, resp.paymentReference));
+            console.log(transactionResponseData);
+
+            if (transactionResponseData.response.body.url != null && transactionResponseData.response.body.url != "")
+            {
+                showResponseBlock(resp, responseBlockEmpty, responseBlockContent, responseBlock);
+            }
+            else {
+                throw new Error(JSON.stringify(transactionResponseData));
+            }
+        }
+        else {
+            throw new Error(JSON.stringify(accessTokenResponseData2));
+        }
+    } catch (err) {
+        console.log('Error: ' + JSON.stringify(JSON.parse(err.message).response.body));
+        dropinuiBlock.classList.add("hidden");
+        dropinuiSpinner.classList.add("hidden");
+        showResponseBlock(JSON.parse(err.message).response.body, responseBlockEmpty, responseBlockContent, responseBlock);
+    } finally {
+        submitComponent.setLoading(false);
+    }
 }
 }
