@@ -57,8 +57,12 @@ function accessTokenPayload(permissions = null) {
 function transactionPayload(accessToken, pmtID) {
     let transactionPayload = {
         accessToken,
+        pmtID,
         account: document.querySelector("#demo-account").value.trim(),
-        pmtID: pmtID
+        amount: document.querySelector("#demo-amount").value.trim(),
+        currency: document.querySelector("#demo-currency").value.trim(),
+        country: document.querySelector("#demo-country").value.trim(),
+        captureMode: document.querySelector("#demo-capturemode").value.trim()
     }
 
     return transactionPayload;
@@ -211,9 +215,9 @@ async function transactionRequest(resp) {
             const transactionResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-transaction.php', transactionPayload(accessTokenResponseData2.response.body.token, resp.paymentReference));
             console.log(transactionResponseData);
 
-            if (transactionResponseData.response.body.url != null && transactionResponseData.response.body.url != "")
+            if (transactionResponseData.response.body.action.result_code == 'SUCCESS')
             {
-                showResponseBlock(resp, responseBlockEmpty, responseBlockContent, responseBlock);
+                showResponseBlock(transactionResponseData.response.body, responseBlockEmpty, responseBlockContent, responseBlock);
             }
             else {
                 throw new Error(JSON.stringify(transactionResponseData));

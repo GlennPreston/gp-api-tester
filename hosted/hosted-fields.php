@@ -15,10 +15,37 @@ $pageTitle = page_title("Hosted Fields");
 			<!-- CREDENTIAL FIELDS -->
 			<demo-fieldset-credentials-component account-field="true"></demo-fieldset-credentials-component>
 
+			<!-- TRANSACTION DETAIL FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend><span class="legend-text">Transaction Details</span></legend>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-amount">Amount</label>
+					<input id="demo-amount" class="field-input" value="1000">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-currency">Currency</label>
+					<input id="demo-currency" class="field-input" value="EUR">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-country">Country</label>
+					<input id="demo-country" class="field-input" value="IE">
+				</div>
+
+				<div class="field-row">
+					<label class="field-label" for="demo-capturemode">Capture Mode</label>
+					<input id="demo-capturemode" class="field-input" value="AUTO">
+				</div>
+			</fieldset>
+
+			<!-- FORM ACTIONS -->
 			<div class="form-actions">
                 <submit-button-component></submit-button-component>
             </div>
 
+			<!-- HOSTED FIELDS -->
 			<div class="hosted-fields-spinner hidden" id="hosted-fields-spinner">
 				<div class="hosted-fields-spinner-dots">
 					<span></span><span></span><span></span>
@@ -44,6 +71,7 @@ $pageTitle = page_title("Hosted Fields");
 				</form>
 			</div>
 
+			<!-- RESPONSE BLOCK -->
 			<div class="response-block-outer hidden">
 				<div class="response-block">
 					<div class="response-block-header">
