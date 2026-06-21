@@ -78,7 +78,7 @@ async function loadContent(path, pushState = true) {
     // Update page title
     const titleElement = container.querySelector("[data-page-title]");
 
-    if (titleElement) { document.title = titleElement.dataset.pageTitle + " | GP API Demo Tool"; }
+    if (titleElement) { document.title = titleElement.dataset.pageTitle; }
 
 
     // Scripts injected via innerHTML are not executed by the browser.
