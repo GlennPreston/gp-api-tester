@@ -3,6 +3,8 @@ const responseBlockEmpty = document.querySelector(".response-block-body-empty");
 const responseBlockContent = document.querySelector(".response-block-body-content");
 const responseBlock = document.querySelector(".response-block-outer");
 
+
+// Submit button
 const submitComponent = document.querySelector("submit-button-component");
 
 submitComponent.addEventListener("click", async () => {
@@ -62,12 +64,9 @@ submitComponent.addEventListener("click", async () => {
 
 // Payload for Create Access Token request
 function accessTokenPayload() {
-    const appID = document.querySelector("#demo-app-id").value.trim();
-	const appKey = document.querySelector("#demo-app-key").value.trim();
-
     const accessTokenPayload = {
-        appID,
-        appKey
+        appID: document.querySelector("#demo-app-id").value.trim(),
+        appKey: document.querySelector("#demo-app-key").value.trim()
     }
 
     return accessTokenPayload;
@@ -76,13 +75,10 @@ function accessTokenPayload() {
 
 // Payload for Create Payer request
 function payerPayload(accessToken) {
-    const firstName = document.querySelector("#demo-payerfirstname").value.trim();
-	const lastName = document.querySelector("#demo-payerlastname").value.trim();
-
     const payerPayload = {
         accessToken,
-        firstName,
-        lastName
+        firstName: document.querySelector("#demo-payerfirstname").value.trim(),
+        lastName: document.querySelector("#demo-payerlastname").value.trim()
     }
 
     return payerPayload;

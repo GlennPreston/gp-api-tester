@@ -196,10 +196,12 @@ $pageTitle = page_title("Hosted Payment Page");
 				</div>
 			</fieldset>
 
+			<!-- FORM ACTIONS -->
 			<div class="form-actions">
                 <submit-button-component></submit-button-component>
             </div>
 
+			<!-- RESPONSE BLOCK -->
 			<div class="response-block-outer hidden">
 				<div class="response-block">
 					<div class="response-block-header">

@@ -3,10 +3,12 @@ const responseBlockEmpty = document.querySelector(".response-block-body-empty");
 const responseBlockContent = document.querySelector(".response-block-body-content");
 const responseBlock = document.querySelector(".response-block-outer");
 
-const submitComponent = document.querySelector("submit-button-component");
-
 const dropinuiBlock = document.querySelector(".drop-in-ui");
 const dropinuiSpinner = document.getElementById("drop-in-ui-spinner");
+
+
+// Submit button
+const submitComponent = document.querySelector("submit-button-component");
 
 submitComponent.addEventListener("click", async () => {
     hideResponseBlock(responseBlockEmpty, responseBlockContent, responseBlock);
@@ -41,12 +43,9 @@ submitComponent.addEventListener("click", async () => {
 
 // Payload for Create Access Token request
 function accessTokenPayload(permissions = null) {
-    const appID = document.querySelector("#demo-app-id").value.trim();
-	const appKey = document.querySelector("#demo-app-key").value.trim();
-
     const accessTokenPayload = {
-        appID,
-        appKey,
+        appID: document.querySelector("#demo-app-id").value.trim(),
+        appKey: document.querySelector("#demo-app-key").value.trim(),
         permissions
     }
 
@@ -66,6 +65,37 @@ function transactionPayload(accessToken, pmtID) {
     }
 
     return transactionPayload;
+}
+
+// Send payload to proxy after retrieving PMT ID
+async function transactionRequest(resp) {
+    try {
+        const accessTokenResponseData2 = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
+        console.log(accessTokenResponseData2);
+        
+        if (accessTokenResponseData2.response.body.token != null && accessTokenResponseData2.response.body.token != "") {
+            const transactionResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-transaction.php', transactionPayload(accessTokenResponseData2.response.body.token, resp.paymentReference));
+            console.log(transactionResponseData);
+
+            if (transactionResponseData.response.body.action.result_code == 'SUCCESS')
+            {
+                showResponseBlock(transactionResponseData.response.body, responseBlockEmpty, responseBlockContent, responseBlock);
+            }
+            else {
+                throw new Error(JSON.stringify(transactionResponseData));
+            }
+        }
+        else {
+            throw new Error(JSON.stringify(accessTokenResponseData2));
+        }
+    } catch (err) {
+        console.log('Error: ' + JSON.stringify(JSON.parse(err.message).response.body));
+        dropinuiBlock.classList.add("hidden");
+        dropinuiSpinner.classList.add("hidden");
+        showResponseBlock(JSON.parse(err.message).response.body, responseBlockEmpty, responseBlockContent, responseBlock);
+    } finally {
+        submitComponent.setLoading(false);
+    }
 }
 
 // -------------------------------------------------------------------------
@@ -129,35 +159,5 @@ function initDropInUI(accessToken = '') {
     cardForm.on("card-number", "register", () => {
         console.log("Registration of Card Number occurred");
     });
-}
-
-async function transactionRequest(resp) {
-    try {
-        const accessTokenResponseData2 = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
-        console.log(accessTokenResponseData2);
-        
-        if (accessTokenResponseData2.response.body.token != null && accessTokenResponseData2.response.body.token != "") {
-            const transactionResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-transaction.php', transactionPayload(accessTokenResponseData2.response.body.token, resp.paymentReference));
-            console.log(transactionResponseData);
-
-            if (transactionResponseData.response.body.action.result_code == 'SUCCESS')
-            {
-                showResponseBlock(transactionResponseData.response.body, responseBlockEmpty, responseBlockContent, responseBlock);
-            }
-            else {
-                throw new Error(JSON.stringify(transactionResponseData));
-            }
-        }
-        else {
-            throw new Error(JSON.stringify(accessTokenResponseData2));
-        }
-    } catch (err) {
-        console.log('Error: ' + JSON.stringify(JSON.parse(err.message).response.body));
-        dropinuiBlock.classList.add("hidden");
-        dropinuiSpinner.classList.add("hidden");
-        showResponseBlock(JSON.parse(err.message).response.body, responseBlockEmpty, responseBlockContent, responseBlock);
-    } finally {
-        submitComponent.setLoading(false);
-    }
 }
 }

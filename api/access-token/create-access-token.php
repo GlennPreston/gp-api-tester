@@ -16,10 +16,12 @@ $pageTitle = page_title("Create Access Token");
 			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
 		</div>
 
+		<!-- FORM ACTIONS -->
 		<div class="form-actions">
             <submit-button-component></submit-button-component>
         </div>
 
+		<!-- RESPONSE BLOCK -->
 		<div class="response-block-outer">
 			<div class="response-block">
 				<div class="response-block-header">
