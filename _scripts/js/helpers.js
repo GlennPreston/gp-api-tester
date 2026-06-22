@@ -1,5 +1,5 @@
 // Send payload to proxy
-async function callProxy(filepath, payload) {
+async function callProxy(filepath, payload = '') {
     const response = await fetch(filepath, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },

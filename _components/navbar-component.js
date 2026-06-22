@@ -17,6 +17,14 @@ class NavBar extends HTMLElement {
 				</div>
 				
 				<div class="navbar-right">
+					<a class="navbar-profiles-link" href="./settings/profiles.php" title="Profiles">
+						<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+							<circle cx="10" cy="7" r="3"/>
+							<path d="M3.5 17c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5"/>
+						</svg>
+						Profiles
+					</a>
+
 					<button id="themeToggle">
 						<span class="theme-toggle-track">
 							<span class="theme-toggle-icon theme-toggle-sun">
