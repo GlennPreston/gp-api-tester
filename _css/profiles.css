@@ -81,3 +81,45 @@
     font-weight: 700;
     color: var(--content-text);
 }
+
+/* Form actions */
+.profile-detail-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    padding-top: 16px;
+}
+
+.btn-save {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--brand);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 100px;
+}
+.btn-save:hover    { background: var(--brand-accent); }
+.btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Feedback */
+.profile-feedback {
+    margin-top: 12px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 7px;
+}
+
+.profile-feedback-success {
+    background: #e6f4ea;
+    color: #15803d;
+}
+
+.profile-feedback-error {
+    background: #fdecea;
+    color: #b91c1c;
+}

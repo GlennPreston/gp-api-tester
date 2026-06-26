@@ -15,6 +15,10 @@ const profileAccount = document.querySelector("#profile-account");
 const profileCurrency = document.querySelector("#profile-currency");
 const profileCountry = document.querySelector("#profile-country");
 
+const btnSave = document.querySelector("#profile-save");
+
+const profileFeedback = document.querySelector("#profile-feedback");
+
 // -------------------------------------------------------------------------
 // Init
 // -------------------------------------------------------------------------
@@ -28,7 +32,7 @@ async function init() {
 init();
 
 // ---------------------------------------------------------------------------
-// Functions
+// Read functions
 // ---------------------------------------------------------------------------
 
 // Get user's saved params from config
@@ -39,10 +43,11 @@ async function getProfilesConfig() {
 }
 
 // Display profiles
-async function displayProfiles() {
+function displayProfiles() {
 	console.log(profilesConfig);
 
-	profiles.forEach((profile) => {
+	// Left: profile list
+	/*profiles.forEach((profile) => {
 		document.querySelector(".profile-list").insertAdjacentHTML(
 			"beforeend",
 			`
@@ -51,7 +56,13 @@ async function displayProfiles() {
 			</button>
 			`
 		);
-	});
+	});*/
+
+	document.querySelector(".profile-list").innerHTML = profiles.map(profile => `
+        <button class="profile-list-item${profile["id"] === selectedId ? ' selected' : ''}" data-id="${profile["id"]}">
+            <span class="profile-list-item-name">${profile["name"]}</span>
+        </button>
+    `).join('');
 
 	// Right: detail / edit panel
 	showProfileDetails();
@@ -105,5 +116,54 @@ function getSelectedProfileIndex() {
 	});
 
 	return selectedProfileIndex;
+}
+
+// ---------------------------------------------------------------------------
+// Write functions
+// ---------------------------------------------------------------------------
+
+btnSave.addEventListener('click', async () => {
+	console.log("Saving");
+	const name = profileName.value.trim();
+    if (!name) { profileName.focus(); showFeedback('Profile name is required.', 'error'); return; }
+
+    btnSave.disabled = true;
+    btnSave.querySelector('.btn-text').classList.add('hidden');
+    btnSave.querySelector('.btn-spinner').classList.remove('hidden');
+
+	const selectedProfileIndex = getSelectedProfileIndex();
+
+	profiles[selectedProfileIndex]['name'] = profileName.value;
+	profiles[selectedProfileIndex]['appId'] = profileAppId.value;
+	profiles[selectedProfileIndex]['appKey'] = profileAppKey.value;
+	profiles[selectedProfileIndex]['account'] = profileAccount.value;
+	profiles[selectedProfileIndex]['currency'] = profileCurrency.value;
+	profiles[selectedProfileIndex]['country'] = profileCountry.value;
+
+	profilesConfig.profiles = profiles;
+
+	const saveResponse = await callProxy(BASE_URL + '_scripts/php/_proxy-profiles-write.php', profilesConfig);
+
+	displayProfiles();
+	showFeedback('Saved.', 'success');
+
+    btnSave.disabled = false;
+    btnSave.querySelector('.btn-text').classList.remove('hidden');
+    btnSave.querySelector('.btn-spinner').classList.add('hidden');
+});
+
+// -------------------------------------------------------------------------
+// Feedback
+// -------------------------------------------------------------------------
+
+function showFeedback(msg, type) {
+    profileFeedback.textContent = msg;
+    profileFeedback.className = `profile-feedback profile-feedback-${type}`;
+    profileFeedback.classList.remove('hidden');
+    setTimeout(hideFeedback, 2500);
+}
+
+function hideFeedback() {
+    profileFeedback.classList.add('hidden');
 }
 }

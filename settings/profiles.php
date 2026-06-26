@@ -41,7 +41,7 @@ $pageTitle = page_title("Profiles");
 
 									<div class="field-row">
 										<label class="field-label" for="profile-name">Name</label>
-										<input id="profile-name" class="field-input" disabled>
+										<input id="profile-name" class="field-input">
 									</div>
 								</fieldset>
 
@@ -51,17 +51,17 @@ $pageTitle = page_title("Profiles");
 
 									<div class="field-row">
 										<label class="field-label" for="profile-app-id">App ID</label>
-										<input id="profile-app-id" class="field-input" disabled>
+										<input id="profile-app-id" class="field-input">
 									</div>
 
 									<div class="field-row">
 										<label class="field-label" for="profile-app-key">App Key</label>
-										<input id="profile-app-key" class="field-input" disabled>
+										<input id="profile-app-key" class="field-input">
 									</div>
 
 									<div class="field-row">
 										<label class="field-label" for="profile-account">Account</label>
-										<input id="profile-account" class="field-input" disabled>
+										<input id="profile-account" class="field-input">
 									</div>
 								</fieldset>
 
@@ -71,15 +71,26 @@ $pageTitle = page_title("Profiles");
 
 									<div class="field-row">
 										<label class="field-label" for="profile-currency">Currency</label>
-										<input id="profile-currency" class="field-input" disabled>
+										<input id="profile-currency" class="field-input">
 									</div>
 
 									<div class="field-row">
 										<label class="field-label" for="profile-country">Country</label>
-										<input id="profile-country" class="field-input" disabled>
+										<input id="profile-country" class="field-input">
 									</div>
 								</fieldset>
 							</div>
+
+							<!-- FORM ACTIONS -->
+							<div class="profile-detail-actions">
+								<button id="profile-save" class="btn-save">
+									<span class="btn-text">Save</span>
+									<span class="btn-spinner hidden"></span>
+								</button>
+							</div>
+
+							<!-- RESPONSE BLOCK -->
+							<div id="profile-feedback" class="profile-feedback hidden"></div>
 						</div>
 					</div>
 				</div>
