@@ -47,17 +47,6 @@ function displayProfiles() {
 	console.log(profilesConfig);
 
 	// Left: profile list
-	/*profiles.forEach((profile) => {
-		document.querySelector(".profile-list").insertAdjacentHTML(
-			"beforeend",
-			`
-			<button class="profile-list-item${profile["id"] === selectedId ? " selected" : ""}" data-id="${profile["id"]}">
-				<span class="profile-list-item-name">${profile["name"]}</span>
-			</button>
-			`
-		);
-	});*/
-
 	document.querySelector(".profile-list").innerHTML = profiles.map(profile => `
         <button class="profile-list-item${profile["id"] === selectedId ? ' selected' : ''}" data-id="${profile["id"]}">
             <span class="profile-list-item-name">${profile["name"]}</span>
