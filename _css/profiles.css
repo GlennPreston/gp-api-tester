@@ -38,7 +38,6 @@
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
-    transition: background 0.15s;
     gap: 8px;
 }
 
@@ -107,7 +106,7 @@
 
 /* Feedback */
 .profile-feedback {
-    margin-top: 12px;
+    margin-top: 20px;
     padding: 8px 12px;
     font-size: 13px;
     font-weight: 600;
