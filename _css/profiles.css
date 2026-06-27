@@ -65,6 +65,34 @@
     flex-shrink: 0;
 }
 
+/* Add profile button */
+.btn-add-profile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    background: none;
+    border: 1.5px dashed var(--brand);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-add-profile:hover {
+    color: var(--brand-accent);
+    border-color: var(--brand-accent);
+    background: var(--secondary-accent);
+}
+
+.btn-add-profile svg {
+    width: 11px;
+    height: 11px;
+}
+
 /* ---------------------------------------------------------------------------
    Right column — profile detail
 --------------------------------------------------------------------------- */

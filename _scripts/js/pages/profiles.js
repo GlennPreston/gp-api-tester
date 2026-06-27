@@ -15,6 +15,7 @@ const profileAccount = document.querySelector("#profile-account");
 const profileCurrency = document.querySelector("#profile-currency");
 const profileCountry = document.querySelector("#profile-country");
 
+const btnAdd = document.querySelector("#profile-add");
 const btnSave = document.querySelector("#profile-save");
 
 const profileFeedback = document.querySelector("#profile-feedback");
@@ -62,7 +63,7 @@ function displayProfiles() {
     });
 }
 
-
+// View profile details
 function viewProfile(id) {
 	selectedId = id;
 
@@ -95,8 +96,9 @@ function showProfileDetails() {
 	profileCountry.value = profiles[selectedProfileIndex]['country'];
 }
 
+// Get profiles array index for selected profile
 function getSelectedProfileIndex() {
-	let selectedProfileIndex = 0;
+	let selectedProfileIndex = null;
 
 	profiles.forEach((profile, index) => {
 		if (profile['id'] === selectedId) {
@@ -111,6 +113,7 @@ function getSelectedProfileIndex() {
 // Write functions
 // ---------------------------------------------------------------------------
 
+// Save profile
 btnSave.addEventListener('click', async () => {
 	console.log("Saving");
 	const name = profileName.value.trim();
@@ -119,6 +122,11 @@ btnSave.addEventListener('click', async () => {
     btnSave.disabled = true;
     btnSave.querySelector('.btn-text').classList.add('hidden');
     btnSave.querySelector('.btn-spinner').classList.remove('hidden');
+
+	if (selectedId === null)
+	{
+		newProfile();
+	}
 
 	const selectedProfileIndex = getSelectedProfileIndex();
 
@@ -140,6 +148,31 @@ btnSave.addEventListener('click', async () => {
     btnSave.querySelector('.btn-text').classList.remove('hidden');
     btnSave.querySelector('.btn-spinner').classList.add('hidden');
 });
+
+// Add new profile
+btnAdd.addEventListener('click', async () => {
+	console.log("Add profile");
+
+	selectedId = null;
+
+	profileDetailTitle.innerHTML = '*New Profile*';
+	profileName.value = '';
+	profileAppId.value = '';
+	profileAppKey.value = '';
+	profileAccount.value = '';
+	profileCurrency.value = '';
+	profileCountry.value = '';
+
+	hideFeedback();
+	profileName.focus();
+});
+
+// Add new profile to profiles list
+function newProfile() {
+	selectedId = crypto.randomUUID();
+	let profile = { id: selectedId };
+	profiles.push(profile);
+}
 
 // -------------------------------------------------------------------------
 // Feedback

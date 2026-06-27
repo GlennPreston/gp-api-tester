@@ -24,6 +24,12 @@ $pageTitle = page_title("Profiles");
 						<!-- Left: profile list -->
 						<div class="profiles-col-list">
 							<div id="profile-list" class="profile-list"></div>
+							<button id="profile-add" class="btn-add-profile">
+								<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+									<path d="M7 2v10M2 7h10"></path>
+								</svg>
+								Add Profile
+							</button>
 						</div>
 
 						<!-- Right: detail / edit panel -->
