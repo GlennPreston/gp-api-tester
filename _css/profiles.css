@@ -115,11 +115,11 @@
 }
 
 .profile-feedback-success {
-    background: #e6f4ea;
-    color: #15803d;
+    background: var(--success-bg);
+    color: var(--success-text);
 }
 
 .profile-feedback-error {
-    background: #fdecea;
-    color: #b91c1c;
+    background: var(--error-bg);
+    color: var(--error-text);
 }

@@ -62,6 +62,14 @@
 	--json-number: #098658;
 	--json-boolean: #0000ff;
 	--json-null: #af00db;
+
+	/* Success/Warning/Error Messages*/
+	--success-bg: #d8f0df;
+	--success-text: #15803d;
+	--warning-bg: #ffedde;
+	--warning-text: #c26a0c;
+	--error-bg: #ffe6e6;
+	--error-text: #b91c1c;
 }
 
 /* ---------------------------------------------------------------------------
@@ -82,10 +90,28 @@
 	/* Border */
 	--border-color: #838689;
 
+	/* HTTP Methods */
+	--http-get-bg: #384766;
+	--http-get-text: #ccebff;
+	--http-post-bg: #394d41;
+	--http-post-text: #bbf7d0;
+	--http-patch-bg: #735c45;
+	--http-patch-text: #ffd8a6;
+	--http-delete-bg: #593e3e;
+	--http-delete-text: #fecaca;
+
 	/* JSON Highlighting */
 	--json-key: #9cdcfe;
 	--json-string: #ce9178;
 	--json-number: #b5cea8;
 	--json-boolean: #569cd6;
 	--json-null: #c586c0;
+
+	/* Success/Warning/Error Messages */
+	--success-bg: #394d41;
+	--success-text: #bbf7d0;
+	--warning-bg: #451a03;
+	--warning-text: #fde68a;
+	--error-bg: #593e3e;
+	--error-text: #fecaca;
 }
