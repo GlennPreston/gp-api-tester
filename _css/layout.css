@@ -63,7 +63,7 @@ navbar-component {
 }
 
 .navbar-left {
-    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
     padding-left: 20px;
 }
 
@@ -328,6 +328,7 @@ sidebar-component {
     color: var(--content-text);
     padding: 10px 30px;
     overflow-y: auto;
+    min-width: 520px;
 }
 
 .content-inner {

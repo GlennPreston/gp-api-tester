@@ -62,7 +62,6 @@ toggle-switch-component {
     background: var(--border-color);
     border-radius: 99px;
     flex-shrink: 0;
-    transition: background var(--transition-duration) var(--transition-easing);
 }
 
 .toggle-switch input:checked + .toggle-track { background: var(--brand); }
