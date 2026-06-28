@@ -7,6 +7,9 @@ let selectedId = 'default';
 // Elements
 // -------------------------------------------------------------------------
 
+const profileDetailEmpty = document.querySelector("#profile-detail-empty");
+const profileDetailForm = document.querySelector("#profile-detail-form");
+
 const profileDetailTitle = document.querySelector("#profile-detail-title");
 const profileName = document.querySelector("#profile-name");
 const profileAppId = document.querySelector("#profile-app-id");
@@ -17,6 +20,11 @@ const profileCountry = document.querySelector("#profile-country");
 
 const btnAdd = document.querySelector("#profile-add");
 const btnSave = document.querySelector("#profile-save");
+const btnDelete = document.querySelector("#profile-delete");
+
+const modalDelete = document.querySelector("#profile-delete-modal");
+const btnDeleteCancel = document.querySelector("#profile-delete-cancel");
+const btnDeleteConfirm = document.querySelector("#profile-delete-confirm");
 
 const profileFeedback = document.querySelector("#profile-feedback");
 
@@ -87,13 +95,34 @@ function setSelectedProfileList() {
 function showProfileDetails() {
 	const selectedProfileIndex = getSelectedProfileIndex();
 
-	profileDetailTitle.innerHTML = profiles[selectedProfileIndex]['name'];
-	profileName.value = profiles[selectedProfileIndex]['name'];
-	profileAppId.value = profiles[selectedProfileIndex]['appId'];
-	profileAppKey.value = profiles[selectedProfileIndex]['appKey'];
-	profileAccount.value = profiles[selectedProfileIndex]['account'];
-	profileCurrency.value = profiles[selectedProfileIndex]['currency'];
-	profileCountry.value = profiles[selectedProfileIndex]['country'];
+	if (selectedProfileIndex === null) {
+		hideDetailForm();
+	}
+	else {
+		showDetailForm();
+
+		profileDetailTitle.innerHTML = profiles[selectedProfileIndex]['name'];
+		profileName.value = profiles[selectedProfileIndex]['name'];
+		profileAppId.value = profiles[selectedProfileIndex]['appId'];
+		profileAppKey.value = profiles[selectedProfileIndex]['appKey'];
+		profileAccount.value = profiles[selectedProfileIndex]['account'];
+		profileCurrency.value = profiles[selectedProfileIndex]['currency'];
+		profileCountry.value = profiles[selectedProfileIndex]['country'];
+	}
+}
+
+function showDetailForm() {
+	profileDetailEmpty.classList.add('hidden');
+	profileDetailForm.classList.remove('hidden');
+	btnSave.classList.remove('hidden');
+	btnDelete.classList.remove('hidden');
+}
+
+function hideDetailForm() {
+	profileDetailEmpty.classList.remove('hidden');
+	profileDetailForm.classList.add('hidden');
+	btnSave.classList.add('hidden');
+	btnDelete.classList.add('hidden');
 }
 
 // Get profiles array index for selected profile
@@ -112,6 +141,33 @@ function getSelectedProfileIndex() {
 // ---------------------------------------------------------------------------
 // Write functions
 // ---------------------------------------------------------------------------
+
+// Add new profile
+btnAdd.addEventListener('click', async () => {
+	console.log("Add profile");
+
+	selectedId = null;
+
+	profileDetailTitle.innerHTML = '*New Profile*';
+	profileName.value = '';
+	profileAppId.value = '';
+	profileAppKey.value = '';
+	profileAccount.value = '';
+	profileCurrency.value = '';
+	profileCountry.value = '';
+
+	showDetailForm();
+	btnDelete.classList.add('hidden');
+	hideFeedback();
+	profileName.focus();
+});
+
+// Add new profile to profiles list
+function newProfile() {
+	selectedId = crypto.randomUUID();
+	let profile = { id: selectedId };
+	profiles.push(profile);
+}
 
 // Save profile
 btnSave.addEventListener('click', async () => {
@@ -142,37 +198,43 @@ btnSave.addEventListener('click', async () => {
 	const saveResponse = await callProxy(BASE_URL + '_scripts/php/_proxy-profiles-write.php', profilesConfig);
 
 	displayProfiles();
-	showFeedback('Saved.', 'success');
+	showFeedback('Saved', 'success');
 
     btnSave.disabled = false;
     btnSave.querySelector('.btn-text').classList.remove('hidden');
     btnSave.querySelector('.btn-spinner').classList.add('hidden');
 });
 
-// Add new profile
-btnAdd.addEventListener('click', async () => {
-	console.log("Add profile");
+// Delete profile
+btnDelete.addEventListener('click', async () => {
+	modalDelete.style.display = "flex";
+});
 
-	selectedId = null;
+btnDeleteCancel.addEventListener("click", async () => {
+    modalDelete.style.display = "none";
+});
 
-	profileDetailTitle.innerHTML = '*New Profile*';
+btnDeleteConfirm.addEventListener("click", async () => {
+    modalDelete.style.display = "none";
+
+	const selectedProfileIndex = getSelectedProfileIndex();
+
+	profiles = profiles.filter(profile => profile !== profiles[selectedProfileIndex]);
+	profilesConfig.profiles = profiles;
+
+	const deleteResponse = await callProxy(BASE_URL + '_scripts/php/_proxy-profiles-write.php', profilesConfig);
+
+	displayProfiles();
+	showFeedback('Deleted', 'success');
+
+	profileDetailTitle.innerHTML = '';
 	profileName.value = '';
 	profileAppId.value = '';
 	profileAppKey.value = '';
 	profileAccount.value = '';
 	profileCurrency.value = '';
 	profileCountry.value = '';
-
-	hideFeedback();
-	profileName.focus();
 });
-
-// Add new profile to profiles list
-function newProfile() {
-	selectedId = crypto.randomUUID();
-	let profile = { id: selectedId };
-	profiles.push(profile);
-}
 
 // -------------------------------------------------------------------------
 // Feedback

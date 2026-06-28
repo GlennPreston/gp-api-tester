@@ -70,6 +70,11 @@
 	--warning-text: #c26a0c;
 	--error-bg: #ffe6e6;
 	--error-text: #b91c1c;
+
+	/* Danger Button */
+	--btn-danger-bg: #dc2626;
+	--btn-danger-bg-hover: #f54242;
+	--btn-danger-text: #ffffff;
 }
 
 /* ---------------------------------------------------------------------------
@@ -114,4 +119,8 @@
 	--warning-text: #fde68a;
 	--error-bg: #593e3e;
 	--error-text: #fecaca;
+
+	/* Danger Button */
+	--btn-danger-bg: #d65151;
+	--btn-danger-bg-hover: #bd3535;
 }

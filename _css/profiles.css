@@ -97,6 +97,7 @@
    Right column — profile detail
 --------------------------------------------------------------------------- */
 
+/* Detail header */
 .profile-detail-header{
     display: flex;
     align-items: center;
@@ -107,6 +108,29 @@
     font-size: 18px;
     font-weight: 700;
     color: var(--content-text);
+}
+
+/* Empty state */
+.profile-detail-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 60px 24px;
+    color: var(--content-text);
+    opacity: 0.3;
+}
+
+.profile-detail-empty svg {
+    width: 44px;
+    height: 44px;
+}
+
+.profile-detail-empty p {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
 }
 
 /* Form actions */
@@ -132,6 +156,20 @@
 .btn-save:hover    { background: var(--brand-accent); }
 .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
 
+.btn-delete {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--btn-danger-text);
+    background: var(--btn-danger-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: auto;
+    min-width: 100px;
+}
+.btn-delete:hover { background: var(--btn-danger-bg-hover); }
+
 /* Feedback */
 .profile-feedback {
     margin-top: 20px;
@@ -149,4 +187,91 @@
 .profile-feedback-error {
     background: var(--error-bg);
     color: var(--error-text);
+}
+
+/* ---------------------------------------------------------------------------
+   Deletion confirmation modal
+--------------------------------------------------------------------------- */
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal */
+.modal-content {
+    min-width: 250px;
+    max-width: 650px;
+    padding: 20px;
+    border-radius: 10px;
+
+    background: var(--secondary);
+    color: var(--content-text);
+    border: 1px solid var(--border-color);
+
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    animation: popup var(--transition-duration) var(--transition-easing);
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    color: var(--content-text);
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: var(--content-text);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    width: 48%;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+/* Cancel button */
+.cancel {
+    background: var(--primary);
+    color: var(--content-text);
+    border-color: var(--border-color);
+}
+
+.cancel:hover {
+    background: var(--primary-accent);
+}
+
+/* Delete button */
+.delete {
+    background: var(--btn-danger-bg);
+    color: var(--btn-danger-text);
+}
+
+.delete:hover {
+    background: var(--btn-danger-bg-hover);
 }

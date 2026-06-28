@@ -39,8 +39,17 @@ $pageTitle = page_title("Profiles");
 								<span id="profile-detail-title" class="profile-detail-title"></span>
 							</div>
 
+							<!-- Empty state -->
+							<div id="profile-detail-empty" class="profile-detail-empty">
+								<svg viewBox="0 0 48 48" fill="none">
+									<circle cx="24" cy="18" r="8" stroke="currentColor" stroke-width="1.5"/>
+									<path d="M8 40c0-8.8 7.2-14 16-14s16 5.2 16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+								</svg>
+								<p>Select a profile or add a new one</p>
+							</div>
+
 							<!-- Form -->
-							<div class="form-fields">
+							<div id="profile-detail-form" class="form-fields hidden">
 								<!-- PROFILE -->
 								<fieldset class="form-fieldset">
 									<legend><span class="legend-text">Profile</span></legend>
@@ -89,10 +98,24 @@ $pageTitle = page_title("Profiles");
 
 							<!-- FORM ACTIONS -->
 							<div class="profile-detail-actions">
-								<button id="profile-save" class="btn-save">
+								<button id="profile-save" class="btn-save hidden">
 									<span class="btn-text">Save</span>
 									<span class="btn-spinner hidden"></span>
 								</button>
+
+								<button id="profile-delete" class="btn-delete hidden">Delete</button>
+								<!-- Confirmation Modal -->
+								<div id="profile-delete-modal" class="modal">
+									<div class="modal-content">
+										<h2>Confirm Deletion</h2>
+										<p>Are you sure you want to delete this profile?</p>
+
+										<div class="buttons">
+											<button id="profile-delete-cancel" class="cancel">Cancel</button>
+											<button id="profile-delete-confirm" class="delete">Delete</button>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- RESPONSE BLOCK -->
