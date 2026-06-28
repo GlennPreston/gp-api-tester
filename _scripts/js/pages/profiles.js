@@ -116,6 +116,7 @@ function showDetailForm() {
 	profileDetailForm.classList.remove('hidden');
 	btnSave.classList.remove('hidden');
 	btnDelete.classList.remove('hidden');
+	hideFeedback();
 }
 
 function hideDetailForm() {
@@ -158,7 +159,6 @@ btnAdd.addEventListener('click', async () => {
 
 	showDetailForm();
 	btnDelete.classList.add('hidden');
-	hideFeedback();
 	profileName.focus();
 });
 

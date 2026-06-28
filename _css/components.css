@@ -185,6 +185,160 @@ toggle-switch-component {
 }
 
 /* ---------------------------------------------------------------------------
+   Profile selector component (demo pages)
+--------------------------------------------------------------------------- */
+
+profile-selector-component {
+    position: relative;
+    display: block;
+    width: 200px;
+    max-width: 50%;
+}
+
+.profile-selector-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-selector-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--content-text);
+    background: var(--secondary-accent);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-selector-btn:hover,
+.profile-selector-btn-open {
+    border-color: var(--brand);
+    background: var(--secondary);
+}
+
+.profile-selector-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    opacity: 0.55;
+}
+
+.profile-selector-btn-text {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-selector-chevron {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition: transform var(--transition-duration) var(--transition-easing);
+}
+
+.profile-selector-btn-open .profile-selector-chevron {
+    transform: rotate(180deg);
+}
+
+.profile-selector-manage-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0.8;
+    flex-shrink: 0;
+}
+
+.profile-selector-manage-link:hover { opacity: 1; }
+
+.profile-selector-list {
+    position: absolute;
+    width: 100%;
+    z-index: 200;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background: var(--secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.profile-selector-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.profile-selector-option:hover { background: var(--secondary-accent); }
+
+.profile-selector-option-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--content-text);
+}
+
+.profile-selector-option-active .profile-selector-option-name { color: var(--brand); }
+
+.profile-selector-option svg {
+    width: 11px;
+    height: 11px;
+    color: var(--brand);
+    flex-shrink: 0;
+}
+
+.profile-selector-empty {
+    padding: 10px;
+    font-size: 13px;
+    color: var(--content-text);
+    opacity: 0.45;
+    text-align: center;
+}
+
+.profile-selector-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 4px 0;
+}
+
+.profile-selector-action a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand);
+    text-decoration: none;
+    border-radius: 7px;
+    transition: background 0.12s;
+}
+
+.profile-selector-action a:hover { background: var(--secondary-accent); }
+
+.profile-selector-action svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* ---------------------------------------------------------------------------
    Utility
 --------------------------------------------------------------------------- */
  

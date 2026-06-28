@@ -8,6 +8,9 @@ $pageTitle = page_title("Drop-In UI");
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
 	<div class="content-header">
 		<h2>Drop-In UI</h2>
+
+		<!-- PROFILE SELECTOR -->
+		<profile-selector-component></profile-selector-component>
 	</div>
 
 	<section id="mode-demo">

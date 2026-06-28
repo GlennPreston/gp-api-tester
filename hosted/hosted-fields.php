@@ -8,6 +8,9 @@ $pageTitle = page_title("Hosted Fields");
 <div data-page-title="<?= htmlspecialchars($pageTitle) ?>">
 	<div class="content-header">
 		<h2>Hosted Fields</h2>
+
+		<!-- PROFILE SELECTOR -->
+		<profile-selector-component></profile-selector-component>
 	</div>
 
 	<section id="mode-demo">

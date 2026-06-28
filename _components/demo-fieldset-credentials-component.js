@@ -20,7 +20,7 @@ class DemoFieldsetCredentials extends HTMLElement {
 			accountElement = `
 				<div class="field-row">
 					<label class="field-label" for="demo-account">Account</label>
-					<input id="demo-account" class="field-input" value="transaction_processing">
+					<input id="demo-account" class="field-input">
 				</div>
 			`;
 		}
@@ -31,12 +31,12 @@ class DemoFieldsetCredentials extends HTMLElement {
 
 				<div class="field-row">
 					<label class="field-label" for="demo-app-id">App ID</label>
-					<input id="demo-app-id" class="field-input" value="jFmpwykc5x8btC5PvIO4mAj94I7bp0si">
+					<input id="demo-app-id" class="field-input">
 				</div>
 
 				<div class="field-row">
 					<label class="field-label" for="demo-app-key">App Key</label>
-					<input id="demo-app-key" class="field-input" value="EUBL3eCVbSg9mAzt">
+					<input id="demo-app-key" class="field-input">
 				</div>`
 				+ accountElement + `
 			</fieldset>

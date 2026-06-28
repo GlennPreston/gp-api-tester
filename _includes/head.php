@@ -27,6 +27,7 @@ if (!isset($pageTitle)) {
 		<script src="./_components/sidebar-component.js" type="text/javascript" defer></script>
 		<script src="./_components/toggle-switch-component.js" type="text/javascript" defer></script>
 		<script src="./_components/submit-button-component.js" type="text/javascript" defer></script>
+		<script src="./_components/profile-selector-component.js" type="text/javascript" defer></script>
 		<script src="./_components/demo-fieldset-credentials-component.js" type="text/javascript" defer></script>
 		<script src="./_components/demo-input-field-select-component.js" type="text/javascript" defer></script>
 
