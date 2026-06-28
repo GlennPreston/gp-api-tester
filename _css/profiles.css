@@ -87,6 +87,7 @@
     border-color: var(--brand-accent);
     background: var(--secondary-accent);
 }
+.btn-add-profile:active { transform: scale(0.98); }
 
 .btn-add-profile svg {
     width: 11px;
@@ -155,6 +156,7 @@
 }
 .btn-save:hover    { background: var(--brand-accent); }
 .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-save:active { transform: scale(0.98); }
 
 .btn-delete {
     padding: 8px 20px;
@@ -169,6 +171,7 @@
     min-width: 100px;
 }
 .btn-delete:hover { background: var(--btn-danger-bg-hover); }
+.btn-delete:active { transform: scale(0.98); }
 
 /* Feedback */
 .profile-feedback {
@@ -261,17 +264,13 @@
     color: var(--content-text);
     border-color: var(--border-color);
 }
-
-.cancel:hover {
-    background: var(--primary-accent);
-}
+.cancel:hover { background: var(--primary-accent); }
+.cancel:active { transform: scale(0.98); }
 
 /* Delete button */
 .delete {
     background: var(--btn-danger-bg);
     color: var(--btn-danger-text);
 }
-
-.delete:hover {
-    background: var(--btn-danger-bg-hover);
-}
+.delete:hover { background: var(--btn-danger-bg-hover); }
+.delete:active { transform: scale(0.98); }
