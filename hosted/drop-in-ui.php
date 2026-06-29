@@ -38,8 +38,12 @@ $pageTitle = page_title("Drop-In UI");
 				</div>
 
 				<div class="field-row">
-					<label class="field-label" for="demo-capturemode">Capture Mode</label>
-					<input id="demo-capturemode" class="field-input" value="AUTO">
+					<field-select-component
+						input-id="demo-capturemode"
+						label="Capture Mode"
+						options="AUTO,LATER,MULTIPLE"
+						value="AUTO">
+					</field-select-component>
 				</div>
 			</fieldset>
 
