@@ -106,7 +106,7 @@
 }
 
 .profile-detail-title{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--content-text);
 }
@@ -144,6 +144,8 @@
 }
 
 .btn-save {
+    display: inline-flex;
+    justify-content: center;
     padding: 8px 20px;
     font-size: 13px;
     font-weight: 600;
@@ -172,6 +174,17 @@
 }
 .btn-delete:hover { background: var(--btn-danger-bg-hover); }
 .btn-delete:active { transform: scale(0.98); }
+
+/* Spinner */
+.btn-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Feedback */
 .profile-feedback {
