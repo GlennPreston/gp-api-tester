@@ -34,11 +34,6 @@ $pageTitle = page_title("Profiles");
 
 						<!-- Right: detail / edit panel -->
 						<div class="profiles-col-detail">
-							<!-- Header -->
-							<div class="profile-detail-header">
-								<span id="profile-detail-title" class="profile-detail-title"></span>
-							</div>
-
 							<!-- Empty state -->
 							<div id="profile-detail-empty" class="profile-detail-empty">
 								<svg viewBox="0 0 48 48" fill="none">
@@ -50,6 +45,11 @@ $pageTitle = page_title("Profiles");
 
 							<!-- Form -->
 							<div id="profile-detail-form" class="form-fields hidden">
+								<!-- Header -->
+								<div class="profile-detail-header">
+									<span id="profile-detail-title" class="profile-detail-title"></span>
+								</div>
+
 								<!-- PROFILE -->
 								<fieldset class="form-fieldset">
 									<legend><span class="legend-text">Profile</span></legend>
