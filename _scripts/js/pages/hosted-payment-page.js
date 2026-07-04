@@ -157,27 +157,23 @@ function linkPayload(accessToken) {
 // Helpers
 // -------------------------------------------------------------------------
 
-const payerStatus = document.querySelector("#demo-payerstatus");
-const payerStatusOptions = Array.from(payerStatus.options).map(option => option.value);
+// Use attribute selector to get the component element (not the inner button which carries the id)
+const payerStatus = document.querySelector('field-select-component[input-id="demo-payerstatus"]');
 const payerFirstName = document.querySelector("#demo-payerfirstname");
 const payerLastName = document.querySelector("#demo-payerlastname");
-const storageMode = document.querySelector("#demo-storagemode");
+const storageMode = document.querySelector('field-select-component[input-id="demo-storagemode"]');
 const payerID = document.querySelector("#demo-payerid");
 
 payerStatus.addEventListener("change", () => {
-    payerStatusOptions.forEach(option => {
-        if (payerStatus.value == "NEW") {
-            payerFirstName.parentElement.classList.remove('hidden');
-            payerLastName.parentElement.classList.remove('hidden');
-
-            payerID.parentElement.classList.add('hidden');
-        }
-        else if (payerStatus.value == "ACTIVE") {
-            payerFirstName.parentElement.classList.add('hidden');
-            payerLastName.parentElement.classList.add('hidden');
-
-            payerID.parentElement.classList.remove('hidden');
-        }
-    });
+    if (payerStatus.value === "NEW") {
+        payerFirstName.closest('.field-row').classList.remove('hidden');
+        payerLastName.closest('.field-row').classList.remove('hidden');
+        payerID.closest('.field-row').classList.add('hidden');
+    }
+    else if (payerStatus.value === "ACTIVE") {
+        payerFirstName.closest('.field-row').classList.add('hidden');
+        payerLastName.closest('.field-row').classList.add('hidden');
+        payerID.closest('.field-row').classList.remove('hidden');
+    }
 });
 }

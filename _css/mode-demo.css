@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: 8px;
     margin: 0;
-    overflow: hidden;
+    overflow: visible;
     transition: height var(--transition-duration) var(--transition-easing);
 }
 
@@ -98,6 +98,69 @@ field-select-component {
 	padding-right: 30px;
 	cursor: pointer;
 }
+
+/* ---------------------------------------------------------------------------
+   Field select component
+--------------------------------------------------------------------------- */
+ 
+.field-select-wrap {
+    position: relative;
+    flex: 1;
+}
+ 
+.field-select-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+ 
+.field-select-btn-open {
+    border-color: var(--brand);
+    background-color: var(--secondary);
+}
+ 
+.field-select-chevron {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    opacity: 0.45;
+    transition: transform var(--transition-duration) var(--transition-easing);
+}
+ 
+.field-select-btn-open .field-select-chevron {
+    transform: rotate(180deg);
+}
+ 
+.field-select-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background: var(--secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+ 
+.field-select-option {
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--content-text);
+    transition: background var(--transition-duration) var(--transition-easing);
+}
+ 
+.field-select-option:hover    { background: var(--secondary-accent); }
+.field-select-option.selected { font-weight: 600; }
 
 /* ---------------------------------------------------------------------------
    Hosted Fields
