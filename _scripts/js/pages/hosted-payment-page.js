@@ -13,7 +13,7 @@ submitComponent.addEventListener("click", async () => {
     // Send payload to proxy
     submitComponent.setLoading(true);
     try {
-        if (document.querySelector("#demo-cardstorage").checked && document.querySelector("#demo-payerstatus").value == "NEW") {
+        if (document.querySelector("#demo-cardstorage").checked && document.querySelector('field-select-component[input-id="demo-payerstatus"]').value == "NEW") {
             const accessTokenResponseData = await callProxy(BASE_URL + '_scripts/php/_proxy-create-access-token.php', accessTokenPayload());
             console.log(accessTokenResponseData);
 
@@ -93,7 +93,7 @@ function linkPayload(accessToken) {
         amount: document.querySelector("#demo-amount").value.trim(),
         currency: document.querySelector("#demo-currency").value.trim(),
         country: document.querySelector("#demo-country").value.trim(),
-        captureMode: document.querySelector("#demo-capturemode").value.trim()
+        captureMode: document.querySelector('field-select-component[input-id="demo-capturemode"]').value
     }
 
     // 3DS fields
@@ -133,9 +133,9 @@ function linkPayload(accessToken) {
     if (document.querySelector("#demo-cardstorage").checked) {
         Object.assign(linkPayload, {
             cardStorage: {
-                payerStatus: document.querySelector("#demo-payerstatus").value.trim(),
+                payerStatus: document.querySelector('field-select-component[input-id="demo-payerstatus"]').value,
                 payerID: document.querySelector("#demo-payerid").value.trim(),
-                storageMode: document.querySelector("#demo-storagemode").value.trim()
+                storageMode: document.querySelector('field-select-component[input-id="demo-storagemode"]').value
             }
         });
     }

@@ -59,11 +59,11 @@ function linkPayload(accessToken) {
         amount: document.querySelector("#demo-amount").value.trim(),
         currency: document.querySelector("#demo-currency").value.trim(),
         country: document.querySelector("#demo-country").value.trim(),
-        usageMode: document.querySelector("#demo-usagemode").value.trim(),
+        usageMode: document.querySelector('field-select-component[input-id="demo-usagemode"]').value,
         usageLimit: document.querySelector("#demo-usagelimit").value.trim(),
         linkName: document.querySelector("#demo-linkname").value.trim(),
         linkDescription: document.querySelector("#demo-linkdescription").value.trim(),
-        shippable: document.querySelector("#demo-shippable").value.trim()
+        shippable: document.querySelector('field-select-component[input-id="demo-shippable"]').value
     }
 
     return linkPayload;

@@ -61,7 +61,7 @@ function transactionPayload(accessToken, pmtID) {
         amount: document.querySelector("#demo-amount").value.trim(),
         currency: document.querySelector("#demo-currency").value.trim(),
         country: document.querySelector("#demo-country").value.trim(),
-        captureMode: document.querySelector("#demo-capturemode").value.trim()
+        captureMode: document.querySelector('field-select-component[input-id="demo-capturemode"]').value
     }
 
     return transactionPayload;
