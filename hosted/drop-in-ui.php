@@ -47,6 +47,20 @@ $pageTitle = page_title("Drop-In UI");
 				</div>
 			</fieldset>
 
+			<!-- DROP-IN UI DETAIL FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend><span class="legend-text">Drop-In UI Details</span></legend>
+
+				<div class="field-row">
+					<field-select-component
+						input-id="demo-drop-in-ui-style"
+						label="Style"
+						options="gp-default,default,simple,blank"
+						value="gp-default">
+					</field-select-component>
+				</div>
+			</fieldset>
+
 			<!-- FORM ACTIONS -->
 			<div class="form-actions">
                 <submit-button-component></submit-button-component>

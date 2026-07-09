@@ -107,15 +107,18 @@ const cardFormContainer = document.querySelector("#credit-card-form");
 
 function initCardForm() {
     return GlobalPayments.creditCard.form("#credit-card-form", {
-        style: "gp-default"
+        style: document.querySelector('field-select-component[input-id="demo-drop-in-ui-style"]').value
     });
 }
 
 function initDropInUI(accessToken = '') {
     if(cardForm != null) {
         cardForm = null;
-        cardFormContainer.innerHTML = "";
     }
+
+    // Remove any stylesheets injected by the GP library so the new style loads cleanly
+    document.querySelectorAll('style[id^="secure-payment-styles-"]').forEach(el => el.remove());
+    cardFormContainer.innerHTML = "";
 
     // configuring Drop-In UI
     if(accessToken != '') {
