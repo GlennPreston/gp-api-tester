@@ -292,6 +292,8 @@ profile-selector-component {
     font-size: 13px;
     font-weight: 600;
     color: var(--content-text);
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .profile-selector-option-active .profile-selector-option-name { color: var(--brand); }
