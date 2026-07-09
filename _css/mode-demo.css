@@ -9,6 +9,7 @@
 }
 
 .form-fieldset {
+    min-width: 0;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 8px 16px 12px;
@@ -106,6 +107,7 @@ field-select-component {
 .field-select-wrap {
     position: relative;
     flex: 1;
+    min-width: 0;
 }
  
 .field-select-btn {
@@ -121,6 +123,11 @@ field-select-component {
 .field-select-btn-open {
     border-color: var(--brand);
     background-color: var(--secondary);
+}
+
+.field-select-btn-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
  
 .field-select-chevron {
@@ -156,6 +163,8 @@ field-select-component {
     border-radius: 5px;
     cursor: pointer;
     color: var(--content-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: background var(--transition-duration) var(--transition-easing);
 }
  
