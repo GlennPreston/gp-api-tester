@@ -124,7 +124,7 @@ function linkPayload(accessToken) {
                     country: document.querySelector("#demo-shippingcountry").value.trim(),
                 },
                 addressMatchIndicator: document.querySelector("#demo-addressmatchindicator").value.trim(),
-                authenticationPreference: document.querySelector("#demo-authenticationpreference").value.trim()
+                authenticationPreference: document.querySelector('field-select-component[input-id="demo-authenticationpreference"]').value
             }
         });
     }

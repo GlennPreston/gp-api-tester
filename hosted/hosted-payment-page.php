@@ -139,8 +139,14 @@ $pageTitle = page_title("Hosted Payment Page");
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-authenticationpreference">Authentication Preference</label>
-						<input id="demo-authenticationpreference" class="field-input" value="NO_PREFERENCE">
+						<field-select-component
+							input-id="demo-authenticationpreference"
+							label="Authentication Preference"
+							options="NO_PREFERENCE,NO_CHALLENGE_REQUESTED,CHALLENGE_PREFERRED,CHALLENGE_MANDATED,
+								NO_CHALLENGE_REQUESTED_TRANSACTION_RISK_ANALYSIS_PERFORMED,NO_CHALLENGE_REQUESTED_DATA_SHARE_ONLY,
+								NO_CHALLENGE_REQUESTED_SCA_ALREADY_PERFORMED,NO_CHALLENGE_REQUESTED_WHITELIST,CHALLENGE_REQUESTED_PROMPT_FOR_WHITELIST"
+							value="NO_PREFERENCE">
+						</field-select-component>
 					</div>
 				</div>
 			</fieldset>
