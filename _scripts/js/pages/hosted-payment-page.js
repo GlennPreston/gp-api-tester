@@ -123,7 +123,7 @@ function linkPayload(accessToken) {
                     postalCode: document.querySelector("#demo-shippingpostalcode").value.trim(),
                     country: document.querySelector("#demo-shippingcountry").value.trim(),
                 },
-                addressMatchIndicator: document.querySelector("#demo-addressmatchindicator").value.trim(),
+                addressMatchIndicator: document.querySelector('field-select-component[input-id="demo-addressmatchindicator"]').value,
                 authenticationPreference: document.querySelector('field-select-component[input-id="demo-authenticationpreference"]').value
             }
         });

@@ -134,8 +134,12 @@ $pageTitle = page_title("Hosted Payment Page");
 					</div>
 
 					<div class="field-row">
-						<label class="field-label" for="demo-addressmatchindicator">Address Match Indicator</label>
-						<input id="demo-addressmatchindicator" class="field-input" value="YES">
+						<field-select-component
+							input-id="demo-addressmatchindicator"
+							label="Address Match Indicator"
+							options="YES,NO"
+							value="YES">
+						</field-select-component>
 					</div>
 
 					<div class="field-row">
