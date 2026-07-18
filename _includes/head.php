@@ -30,6 +30,7 @@ if (!isset($pageTitle)) {
 		<script src="./_components/profile-selector-component.js" type="text/javascript" defer></script>
 		<script src="./_components/demo-fieldset-credentials-component.js" type="text/javascript" defer></script>
 		<script src="./_components/demo-input-field-select-component.js" type="text/javascript" defer></script>
+		<script src="./_components/demo-input-multi-select-component.js" type="text/javascript" defer></script>
 
 		<script src="https://js.globalpay.com/4.1.11/globalpayments.js"></script>
 </head>

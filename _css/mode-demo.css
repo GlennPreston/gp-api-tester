@@ -166,6 +166,116 @@ field-select-component {
 .field-select-option.selected { font-weight: 600; }
 
 /* ---------------------------------------------------------------------------
+   Multi-select component
+--------------------------------------------------------------------------- */
+ 
+field-multiselect-component {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.field-multiselect-wrap {
+    position: relative;
+    flex: 1;
+}
+ 
+.field-multiselect-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+ 
+.field-multiselect-btn-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
+.field-multiselect-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--content-text);
+    transition: background var(--transition-duration) var(--transition-easing);
+    user-select: none;
+}
+ 
+.field-multiselect-option:hover { background: var(--secondary-accent); }
+.field-multiselect-option.selected { font-weight: 600; }
+ 
+.field-multiselect-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--secondary);
+    transition: background var(--transition-duration) var(--transition-easing),
+                border-color var(--transition-duration) var(--transition-easing);
+}
+ 
+.field-multiselect-option.selected .field-multiselect-checkbox {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+ 
+.field-multiselect-checkbox svg {
+    width: 9px;
+    height: 9px;
+}
+ 
+.field-multiselect-option-label {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 12px;
+}
+ 
+/* All / None quick-actions row */
+.field-multiselect-actions {
+    display: flex;
+    gap: 6px;
+    padding: 4px 10px 8px;
+}
+ 
+.field-multiselect-action-btn {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--brand);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.field-multiselect-action-btn:hover { opacity: 1; }
+ 
+.field-multiselect-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0 0 4px;
+}
+ 
+.field-select-chevron.open {
+    transform: rotate(180deg);
+}
+
+/* ---------------------------------------------------------------------------
    Hosted Fields
 --------------------------------------------------------------------------- */
 
