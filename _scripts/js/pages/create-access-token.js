@@ -26,9 +26,15 @@ submitComponent.addEventListener("click", async () => {
 
 // Payload for Create Access Token request
 function accessTokenPayload() {
-    const accessTokenPayload = {
+    let accessTokenPayload = {
         appID: document.querySelector("#demo-app-id").value.trim(),
         appKey: document.querySelector("#demo-app-key").value.trim()
+    }
+
+    // Permissions field
+    const permissions = document.querySelector('field-multiselect-component[input-id="demo-access-token-permissions"]').value;
+    if (document.querySelector("#demo-permissions").checked && permissions.length > 0) {
+        accessTokenPayload.permissions = permissions;
     }
 
     return accessTokenPayload;

@@ -17,6 +17,23 @@ $pageTitle = page_title("Create Access Token");
 		<div class="form-fields">
 			<!-- CREDENTIAL FIELDS -->
 			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
+
+			<!-- PERMISSIONS -->
+			<fieldset class="form-fieldset">
+				<legend><span class="legend-text">Permissions</span><toggle-switch-component input-id="demo-permissions" is-fieldset=true></toggle-switch-component></legend>
+
+				<div id="demo-permissions-fields" class="form-fieldset-fields">
+					<div class="field-row">
+						<field-multiselect-component
+							input-id="demo-access-token-permissions"
+							label="Permissions"
+							options="TRN_POST_Authorize,TRN_POST_Capture,TRN_POST_Refund,TRN_POST_Void,TRN_POST_Reversal,
+								TRN_GET_TransactionDetail,PMT_POST_Create,PMT_GET_Details,PMT_DELETE_Payment,HPP_POST_Charge,
+								HPP_POST_Authorize,DIS_POST_Create,DIS_GET_Detail,BAT_POST_Close,BAT_GET_Detail">
+						</field-multiselect-component>
+					</div>
+				</div>
+			</fieldset>
 		</div>
 
 		<!-- FORM ACTIONS -->
