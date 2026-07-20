@@ -8,7 +8,7 @@ class SideBar extends HTMLElement {
 
         const menus = {
             hosted: {
-                title: "Hosted References",
+                title: "Hosted Examples",
                 links: [
                     {
                         label: "Overview",
@@ -33,7 +33,7 @@ class SideBar extends HTMLElement {
                 ]
             },
             api: {
-                title: "API References",
+                title: "API Examples",
                 links: [
                     {
                         label: "Overview",
