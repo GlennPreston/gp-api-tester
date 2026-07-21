@@ -32,11 +32,53 @@ function accessTokenPayload() {
     }
 
     // Permissions field
-    const permissions = document.querySelector('field-multiselect-component[input-id="demo-access-token-permissions"]').value;
+    const permissions = document.querySelector('field-multiselect-component[input-id="demo-permissions"]').value;
     if (document.querySelector("#demo-permissions").checked && permissions.length > 0) {
         accessTokenPayload.permissions = permissions;
     }
 
+    // Expire field
+    const expireType = document.querySelector('field-select-component[input-id="demo-expiretype"]').value;
+    if (document.querySelector("#demo-expire").checked) {
+        if (expireType === "Seconds to Expire") {
+            console.log("Seconds");
+
+            Object.assign(accessTokenPayload, {
+                expire: {
+                    secondsToExpire: document.querySelector("#demo-secondstoexpire").value.trim()
+                }
+            });
+        }
+        else if (expireType === "Interval to Expire") {
+            console.log("Interval");
+
+            Object.assign(accessTokenPayload, {
+                expire: {
+                    intervalToExpire: document.querySelector('field-select-component[input-id="demo-intervaltoexpire"]').value
+                }
+            });
+        }
+    }
+
     return accessTokenPayload;
 }
+
+// -------------------------------------------------------------------------
+// Helpers
+// -------------------------------------------------------------------------
+
+const expireType = document.querySelector('field-select-component[input-id="demo-expiretype"]');
+const secondsToExpire = document.querySelector("#demo-secondstoexpire");
+const intervalToExpire = document.querySelector('field-select-component[input-id="demo-intervaltoexpire"]');
+
+expireType.addEventListener("change", () => {
+    if (expireType.value === "Seconds to Expire") {
+        secondsToExpire.closest('.field-row').classList.remove('hidden');
+        intervalToExpire.closest('.field-row').classList.add('hidden');
+    }
+    else if (expireType.value === "Interval to Expire") {
+        secondsToExpire.closest('.field-row').classList.add('hidden');
+        intervalToExpire.closest('.field-row').classList.remove('hidden');
+    }
+});
 }

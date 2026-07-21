@@ -34,6 +34,12 @@ if (isset($input['permissions'])) {
     $body['permissions'] = $input['permissions'];
 }
 
+// Expire fields
+if (isset($input['expire'])) {
+    $body['seconds_to_expire'] = $input['expire']['secondsToExpire'] ?? '';
+    $body['interval_to_expire'] = $input['expire']['intervalToExpire'] ?? '';
+}
+
 $endpoint  = 'https://apis.sandbox.globalpay.com/ucp/accesstoken';
 $json_body = json_encode($body);
 
