@@ -29,6 +29,9 @@ $body = [
     'grant_type' => 'client_credentials',
 ];
 
+// Token Settings fields
+$body['restricted_token'] = $input['restrictedToken'] ?? '';
+
 // Permission fields
 if (isset($input['permissions'])) {
     $body['permissions'] = $input['permissions'];

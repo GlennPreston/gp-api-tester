@@ -31,13 +31,21 @@ function accessTokenPayload() {
         appKey: document.querySelector("#demo-app-key").value.trim()
     }
 
+    // Token Settings fields
+    const restrictedToken = document.querySelector("#demo-restrictedtoken");
+    if (restrictedToken.checked) {
+        Object.assign(accessTokenPayload, {
+            restrictedToken: "YES"
+        });
+    }
+
     // Permissions field
     const permissions = document.querySelector('field-multiselect-component[input-id="demo-permissions"]').value;
     if (document.querySelector("#demo-permissions").checked && permissions.length > 0) {
         accessTokenPayload.permissions = permissions;
     }
 
-    // Expire field
+    // Expire fields
     const expireType = document.querySelector('field-select-component[input-id="demo-expiretype"]').value;
     if (document.querySelector("#demo-expire").checked) {
         if (expireType === "Seconds to Expire") {

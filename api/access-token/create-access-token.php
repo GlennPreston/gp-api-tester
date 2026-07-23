@@ -18,6 +18,18 @@ $pageTitle = page_title("Create Access Token");
 			<!-- CREDENTIAL FIELDS -->
 			<demo-fieldset-credentials-component></demo-fieldset-credentials-component>
 
+			<!-- TOKEN SETTINGS -->
+			<fieldset class="form-fieldset">
+				<legend><span class="legend-text">Token Settings</span></legend>
+
+				<div id="demo-settings-fields" class="form-fieldset-fields">
+					<div class="field-row">
+						<label class="field-label" for="demo-restrictedtoken">Restricted Token</label>
+						<toggle-switch-component input-id="demo-restrictedtoken"></toggle-switch-component>
+					</div>
+				</div>
+			</fieldset>
+
 			<!-- PERMISSIONS -->
 			<fieldset class="form-fieldset">
 				<legend><span class="legend-text">Permissions</span><toggle-switch-component input-id="demo-permissions" is-fieldset=true></toggle-switch-component></legend>
