@@ -157,7 +157,6 @@ function linkPayload(accessToken) {
 // Helpers
 // -------------------------------------------------------------------------
 
-// Use attribute selector to get the component element (not the inner button which carries the id)
 const payerStatus = document.querySelector('field-select-component[input-id="demo-payerstatus"]');
 const payerFirstName = document.querySelector("#demo-payerfirstname");
 const payerLastName = document.querySelector("#demo-payerlastname");
