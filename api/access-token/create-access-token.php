@@ -22,11 +22,9 @@ $pageTitle = page_title("Create Access Token");
 			<fieldset class="form-fieldset">
 				<legend><span class="legend-text">Token Settings</span></legend>
 
-				<div id="demo-settings-fields" class="form-fieldset-fields">
-					<div class="field-row">
-						<label class="field-label" for="demo-restrictedtoken">Restricted Token</label>
-						<toggle-switch-component input-id="demo-restrictedtoken"></toggle-switch-component>
-					</div>
+				<div class="field-row">
+					<label class="field-label" for="demo-restrictedtoken">Restricted Token</label>
+					<toggle-switch-component input-id="demo-restrictedtoken"></toggle-switch-component>
 				</div>
 			</fieldset>
 
