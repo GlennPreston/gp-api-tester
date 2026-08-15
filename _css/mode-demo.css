@@ -276,6 +276,195 @@ field-multiselect-component {
 }
 
 /* ---------------------------------------------------------------------------
+   Date picker component
+--------------------------------------------------------------------------- */
+
+field-datepicker-component {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.field-datepicker-wrap {
+    position: relative;
+    flex: 1;
+}
+ 
+.field-datepicker-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+ 
+.field-datepicker-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    opacity: 0.45;
+}
+ 
+.field-datepicker-btn-text {
+    flex: 1;
+}
+ 
+.field-datepicker-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 100;
+    background: var(--secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 12px;
+    width: 260px;
+}
+ 
+/* Header: prev / month+year / next */
+.field-datepicker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+ 
+.field-datepicker-month {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--content-text);
+}
+ 
+.field-datepicker-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--content-text);
+    opacity: 0.5;
+    transition: opacity 0.15s, background 0.15s;
+}
+ 
+.field-datepicker-nav:hover {
+    opacity: 1;
+    background: var(--secondary-accent);
+}
+ 
+.field-datepicker-nav svg {
+    width: 7px;
+    height: 12px;
+}
+ 
+/* Weekday labels */
+.field-datepicker-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 4px;
+}
+ 
+.field-datepicker-weekdays span {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--content-text);
+    opacity: 0.4;
+    padding: 2px 0;
+}
+ 
+/* Day grid */
+.field-datepicker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+ 
+.field-datepicker-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: none;
+    color: var(--content-text);
+    transition: background 0.12s, color 0.12s;
+    font-family: inherit;
+}
+ 
+.field-datepicker-cell.empty {
+    pointer-events: none;
+}
+ 
+.field-datepicker-cell.day:hover {
+    background: var(--secondary-accent);
+}
+ 
+.field-datepicker-cell.today {
+    font-weight: 700;
+    color: var(--brand);
+}
+ 
+.field-datepicker-cell.selected {
+    background: var(--brand);
+    color: #fff;
+    font-weight: 700;
+}
+ 
+.field-datepicker-cell.selected:hover {
+    background: var(--brand-accent);
+}
+ 
+/* Footer */
+.field-datepicker-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+ 
+.field-datepicker-clear {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--content-text);
+    opacity: 0.5;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.15s;
+}
+ 
+.field-datepicker-clear:hover { opacity: 1; }
+ 
+.field-datepicker-today {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.15s;
+    margin-right: auto;
+}
+.field-datepicker-today:hover { opacity: 0.7; }
+
+/* ---------------------------------------------------------------------------
    Hosted Fields
 --------------------------------------------------------------------------- */
 
