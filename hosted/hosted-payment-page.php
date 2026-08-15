@@ -230,6 +230,9 @@ $pageTitle = page_title("Hosted Payment Page");
 				</div>
 			</fieldset>
 
+			<!-- NOTIFICATION URLs FIELDS -->
+			<demo-fieldset-notification-urls-component></demo-fieldset-notification-urls-component>
+
 			<!-- FORM ACTIONS -->
 			<div class="form-actions">
                 <submit-button-component></submit-button-component>

@@ -34,6 +34,9 @@ $body = [
             ],
         ],
     ],
+    'notifications' => [
+        'return_url' => $input['notifications']['returnURL'],
+    ],
 ];
 
 $body['order']['reference'] = $body['reference'];

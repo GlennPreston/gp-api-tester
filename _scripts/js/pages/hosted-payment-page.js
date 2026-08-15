@@ -160,6 +160,13 @@ function linkPayload(accessToken) {
         });
     }
 
+    // Notification URLs fields
+    Object.assign(linkPayload, {
+        notifications: {
+            returnURL: document.querySelector("#demo-returnurl").value.trim()
+        }
+    });
+
     return linkPayload;
 }
 
