@@ -213,6 +213,23 @@ $pageTitle = page_title("Hosted Payment Page");
 				</div>
 			</fieldset>
 
+			<!-- APMs FIELDS -->
+			<fieldset class="form-fieldset">
+				<legend><span class="legend-text">APMs</span><toggle-switch-component input-id="demo-apms" is-fieldset=true></toggle-switch-component></legend>
+
+				<div id="demo-apms-fields" class="form-fieldset-fields">
+					<div class="field-row">
+						<label class="field-label" for="demo-testpay">Test Pay</label>
+						<toggle-switch-component input-id="demo-testpay" is-checked=true></toggle-switch-component>
+					</div>
+
+					<div class="field-row">
+						<label class="field-label" for="demo-wechatpay">WeChat Pay</label>
+						<toggle-switch-component input-id="demo-wechatpay" is-checked=true></toggle-switch-component>
+					</div>
+				</div>
+			</fieldset>
+
 			<!-- FORM ACTIONS -->
 			<div class="form-actions">
                 <submit-button-component></submit-button-component>

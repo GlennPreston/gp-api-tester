@@ -83,6 +83,20 @@ if (isset($input['digitalWallets'])) {
     }
 }
 
+// APMs fields
+if (isset($input['apms'])) {
+    $body['payer']['first_name'] = 'James';
+    $body['payer']['last_name'] = 'Mason';
+
+    if ($input['apms']['testPay']) {
+        $body['order']['transaction_configuration']['allowed_payment_methods'][] = 'testpay';
+    }
+
+    if ($input['apms']['weChatPay']) {
+        $body['order']['transaction_configuration']['allowed_payment_methods'][] = 'wechatpay';
+    }
+}
+
 $endpoint  = 'https://apis.sandbox.globalpay.com/ucp/links';
 $json_body = json_encode($body);
 

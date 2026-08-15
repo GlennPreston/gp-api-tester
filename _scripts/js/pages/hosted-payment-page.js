@@ -150,6 +150,16 @@ function linkPayload(accessToken) {
         });
     }
 
+    // APMs fields
+    if (document.querySelector("#demo-apms").checked) {
+        Object.assign(linkPayload, {
+            apms: {
+                testPay: document.querySelector("#demo-testpay").checked,
+                weChatPay: document.querySelector("#demo-wechatpay").checked
+            }
+        });
+    }
+
     return linkPayload;
 }
 
