@@ -111,8 +111,8 @@ $pageTitle = page_title("Profiles");
 										<p>Are you sure you want to delete this profile?</p>
 
 										<div class="buttons">
-											<button id="profile-delete-cancel" class="cancel">Cancel</button>
-											<button id="profile-delete-confirm" class="delete">Delete</button>
+											<button id="profile-delete-cancel" class="btn-cancel-confirm">Cancel</button>
+											<button id="profile-delete-confirm" class="btn-delete-confirm">Delete</button>
 										</div>
 									</div>
 								</div>

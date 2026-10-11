@@ -272,18 +272,18 @@
 }
 
 /* Cancel button */
-.cancel {
+.btn-cancel-confirm {
     background: var(--primary);
     color: var(--content-text);
     border-color: var(--border-color);
 }
-.cancel:hover { background: var(--primary-accent); }
-.cancel:active { transform: scale(0.98); }
+.btn-cancel-confirm:hover { background: var(--primary-accent); }
+.btn-cancel-confirm:active { transform: scale(0.98); }
 
 /* Delete button */
-.delete {
+.btn-delete-confirm {
     background: var(--btn-danger-bg);
     color: var(--btn-danger-text);
 }
-.delete:hover { background: var(--btn-danger-bg-hover); }
-.delete:active { transform: scale(0.98); }
+.btn-delete-confirm:hover { background: var(--btn-danger-bg-hover); }
+.btn-delete-confirm:active { transform: scale(0.98); }
