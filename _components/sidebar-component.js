@@ -70,6 +70,16 @@ class SideBar extends HTMLElement {
                                 method: "GET"
                             }
                         ]
+                    },
+                    {
+                        label: "Payers",
+                        links: [
+                            {
+                                label: "Create Payer",
+                                href: "api/payers/create-payer.php",
+                                method: "POST"
+                            }
+                        ]
                     }
                 ]
             }
