@@ -35,7 +35,7 @@ $body = [
         ],
     ],
     'notifications' => [
-        'return_url' => $input['notifications']['returnURL'],
+        'return_url' => $input['notifications']['returnURL'] ?? '',
     ],
 ];
 
